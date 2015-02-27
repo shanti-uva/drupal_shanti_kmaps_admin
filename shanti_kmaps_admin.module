@@ -51,7 +51,7 @@ function shanti_kmaps_admin_admin() {
     '#default_value'  => variable_get('shanti_kmaps_admin_server_subjects', SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS),
     '#size'           => 60,
     '#maxlength'      => 255,
-    '#description'    => t('The server used to retrieve data for KMap subject terms. Do not include an end slash.'),
+    '#description'    => t('The server used to retrieve data for KMap subject terms. <br/>Do not include an end slash.'),
     '#required'       => TRUE,
   );
   $form['shanti_kmaps_admin_server_places'] = array(
@@ -60,7 +60,7 @@ function shanti_kmaps_admin_admin() {
     '#default_value'  => variable_get('shanti_kmaps_admin_server_places', SHANTI_KMAPS_ADMIN_SERVER_PLACES),
     '#size'           => 60,
     '#maxlength'      => 255,
-    '#description'    => t('The server used to retrieve data for KMap place terms. Do not include an end slash.'),
+    '#description'    => t('The server used to retrieve data for KMap place terms. <br/>Do not include an end slash.'),
     '#required'       => TRUE,
   );
   $form['shanti_kmaps_admin_server_subjects_explorer'] = array(
@@ -69,7 +69,7 @@ function shanti_kmaps_admin_admin() {
     '#default_value'  => variable_get('shanti_kmaps_admin_server_subjects_explorer', SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS_EXPLORER),
     '#size'           => 60,
     '#maxlength'      => 255,
-    '#description'    => t('The site used to view and explore KMap subject terms in the SHANTI KMap Solr Index. Be sure to use the special string <b>__KMAP__</b> in the URL (with two underscores before and after the uppercase word "KMAP") to specify where the numeric KMap ID actually goes in the URL. Do not include an end slash.'),
+    '#description'    => t('The site used to view and explore KMap subject terms in the SHANTI KMap Solr Index. <br/>Be sure to use the special string <b>__KMAP__</b> in the URL (with two underscores before and after the uppercase word "KMAP") to specify where the numeric KMap ID actually goes in the URL. <br/>Do not include an end slash.'),
     '#required'       => TRUE,
   );
   $form['shanti_kmaps_admin_server_places_explorer'] = array(
@@ -78,7 +78,7 @@ function shanti_kmaps_admin_admin() {
     '#default_value'  => variable_get('shanti_kmaps_admin_server_places_explorer', SHANTI_KMAPS_ADMIN_SERVER_PLACES_EXPLORER),
     '#size'           => 60,
     '#maxlength'      => 255,
-    '#description'    => t('The site used to view and explore KMap place terms in the SHANTI KMap Solr Index. Be sure to use the special string <b>__KMAP__</b> in the URL (with two underscores before and after the uppercase word "KMAP") to specify where the numeric KMap ID actually goes in the URL. Do not include an end slash.'),
+    '#description'    => t('The site used to view and explore KMap place terms in the SHANTI KMap Solr Index. <br/>Be sure to use the special string <b>__KMAP__</b> in the URL (with two underscores before and after the uppercase word "KMAP") to specify where the numeric KMap ID actually goes in the URL. <br/>Do not include an end slash.'),
     '#required'       => TRUE,
   );
   $form['shanti_kmaps_admin_server_solr_opt_in'] = array(
@@ -94,14 +94,14 @@ function shanti_kmaps_admin_admin() {
     '#default_value'  => variable_get('shanti_kmaps_admin_server_solr', SHANTI_KMAPS_ADMIN_SERVER_SOLR),
     '#size'           => 60,
     '#maxlength'      => 255,
-    '#description'    => t("The URL to the SHANTI KMap index. This may include a path to the specific index. Do not include an end slash"),
+    '#description'    => t("The URL to the SHANTI KMap index. <br/>This may include a path to the specific index. <br/>Do not include an end slash."),
     '#required'       => FALSE,
   );
   $form['shanti_kmaps_admin_asset_types'] = array(
     '#type'           => 'textarea',
     '#title'          => t('KMaps Solr Asset Types'),
     '#default_value'  => variable_get('shanti_kmaps_admin_asset_types', SHANTI_KMAPS_ADMIN_ASSET_TYPES),
-    '#description'    => t("A comma delimited list of SHANTI asset types, used throughout the Mandala system. These values should have no spaces."),
+    '#description'    => t("A comma delimited list of asset types, used throughout the KMap system.<br/>These values should be lowercase plurals with no spaces.<br/>Ideally, this list would come from somewhere authoritative, such as the Rail KMaps server itself."),
     '#required'       => TRUE,
   );
   return system_settings_form($form);  
