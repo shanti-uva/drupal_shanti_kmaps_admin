@@ -1,0 +1,98 @@
+<?php
+
+define('SHANTI_KMAPS_ADMIN_SERVICE', preg_replace("/[\.\/]/", '_', str_replace('http://', '', $GLOBALS['base_url'])));
+define('SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS','http://subjects.kmaps.virginia.edu');
+define('SHANTI_KMAPS_ADMIN_SERVER_PLACES','http://places.kmaps.virginia.edu');
+define('SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS_EXPLORER','http://badger.drupal-dev.shanti.virginia.edu/subjects/__KMAPID__');
+define('SHANTI_KMAPS_ADMIN_SERVER_PLACES_EXPLORER','http://badger.drupal-dev.shanti.virginia.edu/places/__KMAPID__');
+define('SHANTI_KMAPS_ADMIN_SERVER_SOLR','http://kidx.shanti.virginia.edu/solr/kmindex');
+define('SHANTI_KMAPS_ADMIN_PATH', drupal_get_path('module','shanti_kmaps_admin'));
+
+function shanti_kmaps_admin_menu() {
+  return array(
+    'admin/config/content/shanti_kmaps_admin' => array(
+      'title' => 'SHANTI KMaps Admin',
+      'description'       => 'Specify servers for pulling and pushing KMaps information.',
+      'page callback'     => 'drupal_get_form',
+      'page arguments'    => array('shanti_kmaps_admin_admin'),
+      'access arguments'  => array('administer shanti_kmaps_admin'),
+      'type'              => MENU_NORMAL_ITEM,      
+    ),
+    'shanti_kmaps_admin/test' => array(
+      'title' => 'SHANTI KMaps Admin Test',
+      'page callback' => 'shanti_kmaps_admin_test',
+      'page arguments' => '',
+      'access arguments'  => array('administer shanti_kmaps_admin'),
+      'type'              => MENU_NORMAL_ITEM,            
+    );
+  );
+}
+
+function shanti_kmaps_admin_permission() {
+ return array(
+    'administer shanti_kmaps_admin' => array(
+      'title' => t('Administer SHANTI KMaps Admin'),
+    ),
+  );
+}
+
+function shanti_kmaps_admin_admin() {
+  $form['shanti_kmaps_admin_server_subjects'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('KMaps Subjects Server'),
+    '#default_value'  => variable_get('shanti_kmaps_admin_server_subjects', SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS),
+    '#size'           => 60,
+    '#maxlength'      => 255,
+    '#description'    => t('The server used to retrieve data for KMap subject terms.'),
+    '#required'       => TRUE,
+  );
+  $form['shanti_kmaps_admin_server_places'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('KMaps Places Server'),
+    '#default_value'  => variable_get('shanti_kmaps_admin_server_places', SHANTI_KMAPS_ADMIN_SERVER_PLACES),
+    '#size'           => 60,
+    '#maxlength'      => 255,
+    '#description'    => t('The server used to retrieve data for KMap place terms.'),
+    '#required'       => TRUE,
+  );
+  $form['shanti_kmaps_admin_server_subjects_explorer'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('KMaps Subjects Explorer'),
+    '#default_value'  => variable_get('shanti_kmaps_admin_server_subjects_explorer', SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS_EXPLORER),
+    '#size'           => 60,
+    '#maxlength'      => 255,
+    '#description'    => t('The site used to view and explore KMap subject terms in the SHANTI KMap Solr Index.'),
+    '#required'       => TRUE,
+  );
+  $form['shanti_kmaps_admin_server_places_explorer'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('KMaps Places Explorer'),
+    '#default_value'  => variable_get('shanti_kmaps_admin_server_places_explorer', SHANTI_KMAPS_ADMIN_SERVER_PLACES_EXPLORER),
+    '#size'           => 60,
+    '#maxlength'      => 255,
+    '#description'    => t('The site used to view and explore KMap place terms in the SHANTI KMap Solr Index.'),
+    '#required'       => TRUE,
+  );
+  $form['shanti_kmaps_admin_server_solr_opt_in'] = array(
+    '#type'           => 'checkbox',
+    '#title'          => t("Do you want to publish your KMap data to the SHANTI KMap Solr Index?"),
+    '#description'    => t("If yes, then make sure you set the next field to a valid Solr URL."),
+    '#default_value'  => variable_get('shanti_kmaps_admin_server_solr_opt_in', 0),
+    '#options'        => array(0 => 'no', 1 => 'yes'),
+  );
+  $form['shanti_kmaps_admin_server_solr'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('KMaps Solr Server'),
+    '#default_value'  => variable_get('shanti_kmaps_admin_server_solr', SHANTI_KMAPS_ADMIN_SERVER_SOLR),
+    '#size'           => 60,
+    '#maxlength'      => 255,
+    '#description'    => t("The URL to the SHANTI KMap index. This may include a path to the specific index."),
+    '#required'       => FALSE,
+  );
+  return system_settings_form($form);  
+}
+
+
+function shanti_kmaps_admin_test() {
+  return "TEST";
+}
