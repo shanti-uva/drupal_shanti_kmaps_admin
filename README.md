@@ -7,7 +7,7 @@ The variables defined by the module are the following:
 * `shanti_kmaps_admin_server_subjects`: The URL to the Rails KMaps site page that stores KMap terms for Subjects.
 * `shanti_kmaps_admin_server_solr_opt_in`: Allows the user to decide of the site should be indexed or not.
 * `shanti_kmaps_admin_server_solr`: The URL to the Solr Index server that stores information about KMaps IDs and their associated Drupal assets.
-* `shanti_kmaps_admin_server_places_explore`: The URL to the Mandala site page that shows the KMap Explorer for Places.
+* `shanti_kmaps_admin_server_places_explorer`: The URL to the Mandala site page that shows the KMap Explorer for Places.
 * `shanti_kmaps_admin_server_subjects_explorer`: The URL to the Mandala site page that shows the KMap Explorer for Subjects.
 * `shanti_kmaps_admin_asset_types`: A canonical list of Mandala asset types, e.g. places, subjects, texts, etc.
 
