@@ -7,7 +7,7 @@ define('SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS_EXPLORER','http://badger.drupal-dev.s
 define('SHANTI_KMAPS_ADMIN_SERVER_PLACES_EXPLORER','http://badger.drupal-dev.shanti.virginia.edu/places/__KMAPID__');
 define('SHANTI_KMAPS_ADMIN_SERVER_SOLR','http://kidx.shanti.virginia.edu/solr/kmindex-dev');
 define('SHANTI_KMAPS_ADMIN_PATH', drupal_get_path('module','shanti_kmaps_admin'));
-define('SHANTI_KMAPS_ADMIN_ASSET_TYPES','texts|photos|audio-video|visuals|sources|subjects|places|terms|maps|agents|events');
+define('SHANTI_KMAPS_ADMIN_ASSET_TYPES',array('texts','photos','audio-video','visuals','sources','subjects','places','terms','maps','agents','events'));
 
 function shanti_kmaps_admin_menu() {
   return array(
@@ -100,11 +100,25 @@ function shanti_kmaps_admin_admin() {
   $form['shanti_kmaps_admin_asset_types'] = array(
     '#type'           => 'textarea',
     '#title'          => t('KMaps Solr Asset Types'),
-    '#default_value'  => variable_get('shanti_kmaps_admin_asset_types', SHANTI_KMAPS_ADMIN_ASSET_TYPES),
-    '#description'    => t("A pipe delimited list of SHANTI asset types, used throughout the Mandala system."),
-    '#required'       => FALSE,
+    '#default_value'  => implode(',',variable_get('shanti_kmaps_admin_asset_types', SHANTI_KMAPS_ADMIN_ASSET_TYPES)),
+    '#description'    => t("A comma delimited list of SHANTI asset types, used throughout the Mandala system."),
+    '#required'       => TRUE,
   );
   return system_settings_form($form);  
+}
+
+function shanti_kmaps_admin_admin_validate($form, &$form_state) {
+  $opt_in = $form_state['values']['shanti_kmaps_admin_server_solr_opt_in'];
+  if ($opt_in) {
+    $solr_index = $form_state['values']['shanti_kmaps_admin_server_solr'];
+    if (!$solr_index) {
+      form_set_error('shanti_kmaps_admin_server_solr', t('You must enter something for the Solr index, since you have chosen to publish to teh SHANTI KMap Solr Index.'));
+    }
+  }
+  # Can you alter the values of a field here?
+  $asset_types = array();
+  $asset_types = explode(',',$form_state['values']['shanti_kmaps_admin_asset_types']);
+  form_set_value($form['shanti_kmaps_admin_asset_types'], $asset_types, &$form_state)
 }
 
 function shanti_kmaps_admin_test() {
@@ -132,7 +146,7 @@ function shanti_kmaps_admin_preprocess_page() {
 
 function shanti_kmaps_admin_get_asset_types() {
   $types = array();
-  $types = explode('|',variable_get('shanti_kmaps_admin_asset_types', SHANTI_KMAPS_ADMIN_ASSET_TYPES));
+  $types = explode(',',variable_get('shanti_kmaps_admin_asset_types', SHANTI_KMAPS_ADMIN_ASSET_TYPES));
   return $types;
 }
 
