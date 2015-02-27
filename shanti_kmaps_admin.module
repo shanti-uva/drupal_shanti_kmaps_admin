@@ -1,9 +1,6 @@
 <?php
 
-#define('SHANTI_KMAPS_ADMIN_SERVICE', preg_replace("/[\.\/]/", '_', str_replace('http://', '', $GLOBALS['base_url'])));
 define('SHANTI_KMAPS_ADMIN_SERVICE', shanti_kmaps_admin_get_service_name());
-
-# These shouldn't be constants if they are going to be used just once 
 define('SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS','http://subjects.kmaps.virginia.edu');
 define('SHANTI_KMAPS_ADMIN_SERVER_PLACES','http://places.kmaps.virginia.edu');
 define('SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS_EXPLORER','http://badger.drupal-dev.shanti.virginia.edu/subjects/__KMAPID__');
@@ -23,17 +20,17 @@ function shanti_kmaps_admin_menu() {
       'type'              => MENU_NORMAL_ITEM,      
     ),
     'shanti_kmaps_admin/test' => array(
-      'title' => 'SHANTI KMaps Admin Test',
-      'page callback' => 'shanti_kmaps_admin_test',
-      'page arguments' => '',
+      'title'             => 'SHANTI KMaps Admin Test',
+      'page callback'     => 'shanti_kmaps_admin_test',
+      'page arguments'    => '',
       'access arguments'  => array('administer shanti_kmaps_admin'),
       'type'              => MENU_NORMAL_ITEM,            
     );
     'shanti_kmaps_admin/vars_json' => array(
       'title' => 'SHANTI KMaps Admin Vars as JSON',
-      'page callback' => 'shanti_kmaps_admin_vars_json',
-      'page arguments' => '',
-      //'access arguments'  => array('administer shanti_kmaps_admin'),
+      'page callback'     => 'shanti_kmaps_admin_vars_json',
+      'page arguments'    => '',
+      'access arguments'  => array('administer shanti_kmaps_admin'),
       'type'              => MENU_NORMAL_ITEM,            
     );
   );
