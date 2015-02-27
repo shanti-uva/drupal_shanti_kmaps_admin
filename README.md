@@ -17,7 +17,7 @@ The module provides the following menu items to the user:
 * `shanti_kmaps_admin/test`: A page that shows the names and current values of the variables.
 * `shanti_kmaps_admin/vars_json`: A page that provides the variable names and values in raw JSON.
 
-THe following functions are available to those writing modules:
+The following functions are available to those writing modules:
 * `shanti_kmaps_admin_get_asset_types()`: Returns an array of the asset type names, which are stored internally as a comma delimited string.
 * `shanti_kmaps_admin_get_vars()`: Returns an array of variables and their values. The keys of this array are just the variable names defined by the module and available through `variable_get()`.
 
