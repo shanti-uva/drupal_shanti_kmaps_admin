@@ -1,12 +1,16 @@
 <?php
 
-define('SHANTI_KMAPS_ADMIN_SERVICE', preg_replace("/[\.\/]/", '_', str_replace('http://', '', $GLOBALS['base_url'])));
+#define('SHANTI_KMAPS_ADMIN_SERVICE', preg_replace("/[\.\/]/", '_', str_replace('http://', '', $GLOBALS['base_url'])));
+define('SHANTI_KMAPS_ADMIN_SERVICE', shanti_kmaps_admin_get_service_name());
+
+# These shouldn't be constants if they are going to be used just once 
 define('SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS','http://subjects.kmaps.virginia.edu');
 define('SHANTI_KMAPS_ADMIN_SERVER_PLACES','http://places.kmaps.virginia.edu');
 define('SHANTI_KMAPS_ADMIN_SERVER_SUBJECTS_EXPLORER','http://badger.drupal-dev.shanti.virginia.edu/subjects/__KMAPID__');
 define('SHANTI_KMAPS_ADMIN_SERVER_PLACES_EXPLORER','http://badger.drupal-dev.shanti.virginia.edu/places/__KMAPID__');
-define('SHANTI_KMAPS_ADMIN_SERVER_SOLR','http://kidx.shanti.virginia.edu/solr/kmindex');
+define('SHANTI_KMAPS_ADMIN_SERVER_SOLR','http://kidx.shanti.virginia.edu/solr/kmindex-dev');
 define('SHANTI_KMAPS_ADMIN_PATH', drupal_get_path('module','shanti_kmaps_admin'));
+define('SHANTI_KMAPS_ADMIN_ASSET_TYPES','texts|photos|audio-video|visuals|sources|subjects|places|terms|maps|agents|events');
 
 function shanti_kmaps_admin_menu() {
   return array(
@@ -23,6 +27,13 @@ function shanti_kmaps_admin_menu() {
       'page callback' => 'shanti_kmaps_admin_test',
       'page arguments' => '',
       'access arguments'  => array('administer shanti_kmaps_admin'),
+      'type'              => MENU_NORMAL_ITEM,            
+    );
+    'shanti_kmaps_admin/vars_json' => array(
+      'title' => 'SHANTI KMaps Admin Vars as JSON',
+      'page callback' => 'shanti_kmaps_admin_vars_json',
+      'page arguments' => '',
+      //'access arguments'  => array('administer shanti_kmaps_admin'),
       'type'              => MENU_NORMAL_ITEM,            
     );
   );
@@ -89,10 +100,51 @@ function shanti_kmaps_admin_admin() {
     '#description'    => t("The URL to the SHANTI KMap index. This may include a path to the specific index."),
     '#required'       => FALSE,
   );
+  $form['shanti_kmaps_admin_asset_types'] = array(
+    '#type'           => 'textarea',
+    '#title'          => t('KMaps Solr Asset Types'),
+    '#default_value'  => variable_get('shanti_kmaps_admin_asset_types', SHANTI_KMAPS_ADMIN_ASSET_TYPES),
+    '#description'    => t("A pipe delimited list of SHANTI asset types, used throughout the Mandala system."),
+    '#required'       => FALSE,
+  );
   return system_settings_form($form);  
 }
 
-
 function shanti_kmaps_admin_test() {
-  return "TEST";
+  $vars = shanti_kmaps_admin_get_vars();
+  $out = '';
+  foreach($vars as $var => $val) {
+    $out .= "$var=$val\n";
+  }
+  return "<pre>$out</pre>";
+}
+
+function shanti_kmaps_admin_vars_json() {
+  $vars = shanti_kmaps_admin_get_vars();
+  drupal_json_output($vars);
+}
+
+function shanti_kmaps_admin_get_service_name() {
+  return preg_replace("/[\.\/]/", '_', str_replace('http://', '', $GLOBALS['base_url']));
+}
+
+function shanti_kmaps_admin_preprocess_page() {
+  $vars = shanti_kmaps_admin_get_vars();
+  drupal_add_js(array('shanti_kmaps_admin' => $vars), 'setting');
+}
+
+function shanti_kmaps_admin_get_asset_types() {
+  $types = array();
+  $types = explode('|',variable_get('shanti_kmaps_admin_asset_types', SHANTI_KMAPS_ADMIN_ASSET_TYPES));
+  return $types;
+}
+
+function shanti_kmaps_admin_get_vars() {
+  $vars = array();
+  $sql = "select `name`, `value` from {variable} where `name` like 'shanti_kmaps_admin%'";
+  $rs = db_query($sql);
+  foreach($rs as $r) {
+    $vars[$r->name] = $r->value;
+  }
+  return $vars;
 }
