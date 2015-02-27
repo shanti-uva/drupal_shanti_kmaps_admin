@@ -1,5 +1,5 @@
 # SHANTI KMaps Admin
-A module to define site wide variables, accessible by `variable_get()`, that are shared by all the SHANTI KMaps modules.
+A module to define site wide variables, accessible by `variable_get()`, that are shared by all the SHANTI KMaps modules. This module also exposes the variables to the JavaScript environment, using Drupal's JavaScript API, as Drupal.settings. 
 
 The variables defined by the module are the following:
 
