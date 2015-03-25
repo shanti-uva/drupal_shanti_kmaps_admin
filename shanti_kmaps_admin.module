@@ -98,6 +98,15 @@ function shanti_kmaps_admin_admin() {
     '#description'    => t("The URL to the SHANTI KMap Assets index. <br/>This may include a path to the specific index. <br/>Do not include an end slash."),
     '#required'       => FALSE,
   );
+  $form['shanti_kmaps_admin_solr_filter_query'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('KMaps Solr Filter Query'),
+    '#default_value'  => variable_get('shanti_kmaps_admin_solr_filter_query', ''),
+    '#size'           => 60,
+    '#maxlength'      => 255,
+    '#description'    => t('Solr filter query to apply to all queries, e.g. <tt>fq=project:my_project OR fq=kmapid:places-99999</tt>.'),
+    '#required'       => FALSE,
+  );
   $form['shanti_kmaps_admin_server_solr_terms'] = array(
     '#type'           => 'textfield',
     '#title'          => t('KMaps Solr Server Terms Index'),
