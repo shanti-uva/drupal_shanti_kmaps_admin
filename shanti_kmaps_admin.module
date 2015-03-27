@@ -64,6 +64,24 @@ function shanti_kmaps_admin_admin() {
     '#description'    => t('The server used to retrieve data for KMap place terms. <br/>Do not include an end slash.'),
     '#required'       => TRUE,
   );
+  $form['shanti_kmaps_admin_root_subjects_id'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('Root KMaps Subjects ID'),
+    '#default_value'  => variable_get('shanti_kmaps_admin_root_subjects_id', 6403),
+    '#size'           => 20,
+    '#maxlength'      => 30,
+    '#description'    => t("The root subject ID for this site. Defaults to 'Tibet and Himalyas'. You need to enter the numeric value."),
+    '#required'       => FALSE,
+  );
+  $form['shanti_kmaps_admin_root_places_id'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('Root KMaps Places ID'),
+    '#default_value'  => variable_get('shanti_kmaps_admin_root_places_id', 13735),
+    '#size'           => 20,
+    '#maxlength'      => 30,
+    '#description'    => t("The root places ID for this site. Defaults to 'Earth'. You need to enter the numeric value."),
+    '#required'       => FALSE,
+  );
   $form['shanti_kmaps_admin_server_subjects_explorer'] = array(
     '#type'           => 'textfield',
     '#title'          => t('KMaps Subjects Explorer'),
@@ -96,24 +114,6 @@ function shanti_kmaps_admin_admin() {
     '#size'           => 60,
     '#maxlength'      => 255,
     '#description'    => t("The URL to the SHANTI KMap Assets index. <br/>This may include a path to the specific index. <br/>Do not include an end slash."),
-    '#required'       => FALSE,
-  );
-  $form['shanti_kmaps_admin_root_subjects_id'] = array(
-    '#type'           => 'textfield',
-    '#title'          => t('Root KMaps Subjects ID'),
-    '#default_value'  => variable_get('shanti_kmaps_admin_root_subjects_id', 6403),
-    '#size'           => 20,
-    '#maxlength'      => 30,
-    '#description'    => t("The root subject ID for this site. Defaults to 'Tibet and Himalyas'. You need to enter the numeric value."),
-    '#required'       => FALSE,
-  );
-  $form['shanti_kmaps_admin_root_places_id'] = array(
-    '#type'           => 'textfield',
-    '#title'          => t('Root KMaps Places ID'),
-    '#default_value'  => variable_get('shanti_kmaps_admin_root_places_id', 13735),
-    '#size'           => 20,
-    '#maxlength'      => 30,
-    '#description'    => t("The root places ID for this site. Defaults to 'Earth'. You need to enter the numeric value."),
     '#required'       => FALSE,
   );
   $form['shanti_kmaps_admin_solr_filter_query'] = array(
