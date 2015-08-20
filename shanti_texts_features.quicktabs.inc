@@ -17,7 +17,7 @@ function shanti_texts_features_quicktabs_default_quicktabs() {
   $quicktabs->ajax = 0;
   $quicktabs->hide_empty_tabs = FALSE;
   $quicktabs->default_tab = 0;
-  $quicktabs->title = 'Quicktab Search';
+  $quicktabs->title = 'Search';
   $quicktabs->tabs = array(
     0 => array(
       'vid' => 'text_search',
@@ -28,11 +28,12 @@ function shanti_texts_features_quicktabs_default_quicktabs() {
       'type' => 'view',
     ),
     1 => array(
-      'bid' => 'views_delta_full_text_local-block',
-      'hide_title' => 1,
-      'title' => 'Text',
-      'weight' => '-98',
-      'type' => 'block',
+      'vid' => 'full_text_local',
+      'display' => 'block_1',
+      'args' => '',
+      'title' => 'Full Text',
+      'weight' => '-99',
+      'type' => 'view',
     ),
   );
   $quicktabs->renderer = 'bh_bootstrapquicktabs_tabs';
@@ -43,8 +44,8 @@ function shanti_texts_features_quicktabs_default_quicktabs() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Quicktab Search');
-  t('Text');
+  t('Full Text');
+  t('Search');
   t('Title');
 
   $export['search_qt'] = $quicktabs;

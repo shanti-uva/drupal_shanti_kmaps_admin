@@ -57,13 +57,13 @@ function shanti_texts_features_default_search_api_autocomplete_search() {
     "name" : "Full Text Local",
     "index_id" : "full_text_local",
     "type" : "search_api_views",
-    "enabled" : "1",
+    "enabled" : "0",
     "options" : {
       "result count" : true,
       "fields" : [ "field_book_content:value" ],
       "results" : 1,
       "min_length" : "3",
-      "custom" : { "display" : "block" }
+      "custom" : { "display" : "block_1" }
     }
   }');
   return $items;
@@ -141,11 +141,11 @@ function shanti_texts_features_default_search_api_index() {
           "status" : 1,
           "weight" : "35",
           "settings" : {
-            "prefix" : "\\u003Cstrong\\u003E",
+            "prefix" : "\\u003Cstrong class=\\u0022full-text-search-hit\\u0022\\u003E",
             "suffix" : "\\u003C\\/strong\\u003E",
             "excerpt" : 1,
             "excerpt_length" : "256",
-            "exclude_fields" : [],
+            "exclude_fields" : { "field_book_author" : "field_book_author" },
             "highlight" : "always"
           }
         }
