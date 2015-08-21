@@ -30,7 +30,7 @@ function shanti_texts_features_default_page_manager_pages() {
   $handler->task = 'page';
   $handler->subtask = 'front_page';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Panel',
     'no_blocks' => 0,
@@ -165,7 +165,7 @@ function shanti_texts_features_default_page_manager_pages() {
   $handler->task = 'page';
   $handler->subtask = 'front_page';
   $handler->handler = 'template';
-  $handler->weight = 1;
+  $handler->weight = -30;
   $handler->conf = array(
     'title' => 'Overview',
     'contexts' => array(),
