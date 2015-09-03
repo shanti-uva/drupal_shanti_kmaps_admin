@@ -55,6 +55,12 @@ function shanti_texts_features_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 17,
       ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 10,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -169,6 +175,13 @@ function shanti_texts_features_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 15,
       ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -232,7 +245,7 @@ function shanti_texts_features_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 36,
+      'weight' => 8,
     ),
   );
 
@@ -284,6 +297,13 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 0,
       ),
       'pubreader' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'search_index' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
@@ -346,6 +366,11 @@ function shanti_texts_features_field_default_field_instances() {
           ),
         ),
       ),
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
       'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
@@ -353,7 +378,7 @@ function shanti_texts_features_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 10,
+        'rows' => 15,
       ),
       'type' => 'text_textarea',
       'weight' => 7,
@@ -430,6 +455,12 @@ function shanti_texts_features_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 16,
       ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 12,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -466,7 +497,7 @@ function shanti_texts_features_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_text',
-      'weight' => 37,
+      'weight' => 9,
     ),
   );
 
@@ -560,6 +591,19 @@ function shanti_texts_features_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 2,
       ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'date',
@@ -623,7 +667,7 @@ function shanti_texts_features_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_text',
-      'weight' => 45,
+      'weight' => 14,
     ),
   );
 
@@ -717,6 +761,19 @@ function shanti_texts_features_field_default_field_instances() {
         'type' => 'date_default',
         'weight' => 1,
       ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'date',
@@ -780,7 +837,7 @@ function shanti_texts_features_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_text',
-      'weight' => 44,
+      'weight' => 13,
     ),
   );
 
@@ -831,6 +888,13 @@ function shanti_texts_features_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 12,
+      ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -896,7 +960,7 @@ function shanti_texts_features_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 35,
+      'weight' => 7,
     ),
   );
 
@@ -954,6 +1018,13 @@ function shanti_texts_features_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 3,
+      ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'inline',
@@ -1025,7 +1096,7 @@ function shanti_texts_features_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 43,
+      'weight' => 12,
     ),
   );
 
@@ -1077,6 +1148,13 @@ function shanti_texts_features_field_default_field_instances() {
         'type' => 'creative_commons_small_image',
         'weight' => 10,
       ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'creative_commons',
+        'settings' => array(),
+        'type' => 'creative_commons_small_image',
+        'weight' => 9,
+      ),
       'teaser' => array(
         'label' => 'inline',
         'settings' => array(),
@@ -1103,7 +1181,7 @@ function shanti_texts_features_field_default_field_instances() {
       'module' => 'creative_commons',
       'settings' => array(),
       'type' => 'select',
-      'weight' => 47,
+      'weight' => 16,
     ),
   );
 
@@ -1154,6 +1232,13 @@ function shanti_texts_features_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_default',
         'weight' => 9,
+      ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'inline',
@@ -1218,7 +1303,7 @@ function shanti_texts_features_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 46,
+      'weight' => 15,
     ),
   );
 
@@ -1273,6 +1358,12 @@ function shanti_texts_features_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 14,
+      ),
+      'search_index' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -1395,6 +1486,13 @@ function shanti_texts_features_field_default_field_instances() {
         'type' => 'kmap_default_formatter',
         'weight' => 13,
       ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'shanti_kmaps_fields',
+        'settings' => array(),
+        'type' => 'kmap_simple_formatter',
+        'weight' => 7,
+      ),
       'teaser' => array(
         'label' => 'inline',
         'module' => 'shanti_kmaps_fields',
@@ -1423,7 +1521,7 @@ function shanti_texts_features_field_default_field_instances() {
       'module' => 'shanti_kmaps_fields',
       'settings' => array(),
       'type' => 'kmap_tree_picker ',
-      'weight' => 39,
+      'weight' => 11,
     ),
   );
 
@@ -1475,6 +1573,13 @@ function shanti_texts_features_field_default_field_instances() {
         'type' => 'kmap_popover_formatter',
         'weight' => 11,
       ),
+      'search_index' => array(
+        'label' => 'inline',
+        'module' => 'shanti_kmaps_fields',
+        'settings' => array(),
+        'type' => 'kmap_simple_formatter',
+        'weight' => 6,
+      ),
       'teaser' => array(
         'label' => 'inline',
         'module' => 'shanti_kmaps_fields',
@@ -1503,7 +1608,7 @@ function shanti_texts_features_field_default_field_instances() {
       'module' => 'shanti_kmaps_fields',
       'settings' => array(),
       'type' => 'kmap_tree_picker ',
-      'weight' => 38,
+      'weight' => 10,
     ),
   );
 
@@ -1563,6 +1668,12 @@ function shanti_texts_features_field_default_field_instances() {
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 5,
+      ),
+      'search_index' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',

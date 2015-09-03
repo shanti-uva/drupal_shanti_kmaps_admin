@@ -120,6 +120,8 @@ function shanti_texts_features_default_search_api_index() {
         "field_book_content:value" : { "type" : "text" },
         "field_dc_date_orginial_year" : { "type" : "date" },
         "field_dc_date_publication_year" : { "type" : "date" },
+        "field_kmap_places" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_kmap_term" : { "type" : "list\\u003Ctext\\u003E" },
         "search_api_language" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
@@ -231,6 +233,16 @@ function shanti_texts_features_default_search_api_server() {
             "table" : "search_api_db_full_text_local",
             "column" : "field_dc_date_publication_year",
             "type" : "date",
+            "boost" : "1.0"
+          },
+          "field_kmap_places" : {
+            "table" : "search_api_db_full_text_local_text",
+            "type" : "list\\u003Ctext\\u003E",
+            "boost" : "1.0"
+          },
+          "field_kmap_term" : {
+            "table" : "search_api_db_full_text_local_text",
+            "type" : "list\\u003Ctext\\u003E",
             "boost" : "1.0"
           }
         }
