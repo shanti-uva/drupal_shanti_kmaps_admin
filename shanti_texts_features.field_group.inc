@@ -52,7 +52,6 @@ function shanti_texts_features_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'field_book_content',
-      1 => 'field_general_featured_image',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -81,17 +80,15 @@ function shanti_texts_features_field_group_info() {
     'children' => array(
       0 => 'field_book_author',
       1 => 'field_book_date',
-      2 => 'field_dc_creator_author',
-      3 => 'field_dc_creator_editor',
-      4 => 'field_dc_creator_translator',
-      5 => 'field_dc_date_orginial_year',
-      6 => 'field_dc_date_publication_year',
-      7 => 'field_dc_description',
-      8 => 'field_dc_language_original',
-      9 => 'field_dc_rights_creativecommons',
-      10 => 'field_dc_rights_general',
-      11 => 'field_kmap_places',
-      12 => 'field_kmap_term',
+      2 => 'field_dc_date_orginial_year',
+      3 => 'field_dc_date_publication_year',
+      4 => 'field_dc_description',
+      5 => 'field_dc_language_original',
+      6 => 'field_dc_rights_creativecommons',
+      7 => 'field_dc_rights_general',
+      8 => 'field_general_featured_image',
+      9 => 'field_kmap_places',
+      10 => 'field_kmap_term',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -118,10 +115,7 @@ function shanti_texts_features_field_group_info() {
   $field_group->data = array(
     'label' => 'Test',
     'weight' => '3',
-    'children' => array(
-      0 => 'field_kmaps_subjects',
-      1 => 'field_kmaps_places',
-    ),
+    'children' => array(),
     'format_type' => 'tab',
     'format_settings' => array(
       'formatter' => 'closed',
