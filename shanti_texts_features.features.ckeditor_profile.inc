@@ -20,7 +20,7 @@ function shanti_texts_features_ckeditor_profile_defaults() {
         'ckfinder_path' => '%m/ckfinder',
         'ckfinder_local_path' => '',
         'ckeditor_aggregate' => 'f',
-        'toolbar_wizard' => 't',
+        'toolbar_wizard' => 'f',
         'loadPlugins' => array(),
       ),
       'input_formats' => array(),
@@ -30,25 +30,19 @@ function shanti_texts_features_ckeditor_profile_defaults() {
       'settings' => array(
         'ss' => 2,
         'toolbar' => '[
-    [\'Source\'],
-    [\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\'],
+    [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'NumberedList\',\'BulletedList\',\'Outdent\',\'Indent\',\'Blockquote\',\'CreateDiv\'],
+    [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\'],
     [\'Find\',\'Replace\'],
-    [\'Media\',\'Table\',\'HorizontalRule\',\'SpecialChar\',\'Anchor\',\'-\',\'ShowBlocks\',\'footnotes\',\'Format\',\'Styles\',\'Maximize\'],
     \'/\',
-    [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'RemoveFormat\'],
-    [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\',\'Blockquote\',\'CreateDiv\'],
-    [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\',\'-\',\'Language\'],
-    [\'linkit\',\'Link\',\'Unlink\'],
-    \'/\',
-    
-    []
+    [\'Format\',\'-\',\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\'],
+    [\'Footnotes\',\'Unlink\',\'Link\',\'Anchor\',\'Media\',\'Table\',\'HorizontalRule\',\'SpecialChar\',\'-\',\'Source\',\'ShowBlocks\',\'Maximize\']
 ]',
         'expand' => 't',
         'default' => 't',
         'show_toggle' => 'f',
         'uicolor' => 'default',
-        'uicolor_user' => 'default',
-        'width' => '100%',
+        'uicolor_user' => '#D3D3D3',
+        'width' => 600,
         'lang' => 'en',
         'auto_lang' => 't',
         'language_direction' => 'default',
@@ -83,15 +77,11 @@ function shanti_texts_features_ckeditor_profile_defaults() {
         'theme_config_js' => 'f',
         'js_conf' => '',
         'loadPlugins' => array(
-          'ckeditor_link' => array(
-            'name' => 'drupal_path',
-            'desc' => 'CKEditor Link - A plugin to easily create links to Drupal internal paths',
-            'path' => '%base_path%sites/all/modules/ckeditor_link/plugins/link/',
-          ),
           'footnotes' => array(
             'name' => 'footnotes',
             'desc' => 'Plugin to add footnotes.',
-            'path' => '%base_path%sites/all/modules/inline_footnotes/modules/inline_footnotes_ckeditor/plugin/',
+            'path' => '%base_path%sites/all/modules/shanti_footnotes/modules/shanti_footnotes_ckeditor/plugin/',
+            'default' => 't',
             'buttons' => array(
               'footnotes' => array(
                 'icon' => 'icons/footnotes.png',
