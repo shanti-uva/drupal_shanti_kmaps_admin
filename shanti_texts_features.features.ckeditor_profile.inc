@@ -12,8 +12,8 @@ function shanti_texts_features_ckeditor_profile_defaults() {
     'CKEditor Global Profile' => array(
       'name' => 'CKEditor Global Profile',
       'settings' => array(
-        'skin' => 'flat',
-        'ckeditor_path' => '%m/ckeditor/ckeditor',
+        'skin' => 'moono',
+        'ckeditor_path' => '//cdn.ckeditor.com/4.5.3/full-all',
         'ckeditor_local_path' => '',
         'ckeditor_plugins_path' => '%m/plugins',
         'ckeditor_plugins_local_path' => '',
@@ -34,7 +34,7 @@ function shanti_texts_features_ckeditor_profile_defaults() {
     [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\'],
     [\'Find\',\'Replace\'],
     \'/\',
-    [\'Format\',\'-\',\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\'],
+    [\'Format\',\'Styles\',\'-\',\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\'],
     [\'Footnotes\',\'Unlink\',\'Link\',\'Anchor\',\'Media\',\'Table\',\'HorizontalRule\',\'SpecialChar\',\'-\',\'Source\',\'ShowBlocks\',\'Maximize\']
 ]',
         'expand' => 't',
@@ -67,8 +67,8 @@ function shanti_texts_features_ckeditor_profile_defaults() {
         'css_style' => 'theme',
         'styles_path' => '',
         'filebrowser' => 'imce',
-        'filebrowser_image' => '',
-        'filebrowser_flash' => '',
+        'filebrowser_image' => 'imce',
+        'filebrowser_flash' => 'imce',
         'UserFilesPath' => '%b%f/',
         'UserFilesAbsolutePath' => '%d%b%f/',
         'forcePasteAsPlainText' => 't',
@@ -77,9 +77,21 @@ function shanti_texts_features_ckeditor_profile_defaults() {
         'theme_config_js' => 'f',
         'js_conf' => '',
         'loadPlugins' => array(
+          'ckeditor_link' => array(
+            'name' => 'drupal_path',
+            'desc' => 'CKEditor Link - A plugin to easily create links to Drupal internal paths',
+            'path' => '%base_path%sites/all/modules/ckeditor_link/plugins/link/',
+          ),
+          'codemirror' => array(
+            'name' => 'codemirror',
+            'desc' => 'Plugin file: codemirror',
+            'path' => '%plugin_dir%codemirror/',
+            'buttons' => FALSE,
+            'default' => 'f',
+          ),
           'footnotes' => array(
             'name' => 'footnotes',
-            'desc' => 'Plugin to add footnotes.',
+            'desc' => 'SHANTI verson of CKEditor Footnotes.',
             'path' => '%base_path%sites/all/modules/shanti_footnotes/modules/shanti_footnotes_ckeditor/plugin/',
             'default' => 't',
             'buttons' => array(
