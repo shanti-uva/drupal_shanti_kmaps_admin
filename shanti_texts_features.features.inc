@@ -89,7 +89,7 @@ function shanti_texts_features_default_search_api_autocomplete_search() {
     "name" : "Full Text Local",
     "index_id" : "full_text_local",
     "type" : "search_api_views",
-    "enabled" : "0",
+    "enabled" : "1",
     "options" : {
       "result count" : true,
       "fields" : [ "field_book_content:value" ],

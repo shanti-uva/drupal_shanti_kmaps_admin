@@ -81,13 +81,6 @@ function shanti_texts_features_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'book-view-card-title';
-  /* Field: Content: Author */
-  $handler->display->display_options['fields']['field_book_author']['id'] = 'field_book_author';
-  $handler->display->display_options['fields']['field_book_author']['table'] = 'field_data_field_book_author';
-  $handler->display->display_options['fields']['field_book_author']['field'] = 'field_book_author';
-  $handler->display->display_options['fields']['field_book_author']['label'] = '';
-  $handler->display->display_options['fields']['field_book_author']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_book_author']['delta_offset'] = '0';
   /* Field: Content: Original publication year */
   $handler->display->display_options['fields']['field_dc_date_orginial_year']['id'] = 'field_dc_date_orginial_year';
   $handler->display->display_options['fields']['field_dc_date_orginial_year']['table'] = 'field_data_field_dc_date_orginial_year';
@@ -95,8 +88,9 @@ function shanti_texts_features_views_default_views() {
   $handler->display->display_options['fields']['field_dc_date_orginial_year']['label'] = '';
   $handler->display->display_options['fields']['field_dc_date_orginial_year']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_dc_date_orginial_year']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_dc_date_orginial_year']['alter']['text'] = '[[field_dc_date_orginial_year]]';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['alter']['text'] = ' [[field_dc_date_orginial_year]]';
   $handler->display->display_options['fields']['field_dc_date_orginial_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_dc_date_orginial_year']['settings'] = array(
     'format_type' => 'long',
     'fromto' => 'both',
@@ -110,7 +104,7 @@ function shanti_texts_features_views_default_views() {
   $handler->display->display_options['fields']['field_dc_date_publication_year']['field'] = 'field_dc_date_publication_year';
   $handler->display->display_options['fields']['field_dc_date_publication_year']['label'] = '';
   $handler->display->display_options['fields']['field_dc_date_publication_year']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_dc_date_publication_year']['alter']['text'] = '[field_dc_date_publication_year] [field_dc_date_orginial_year]';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['alter']['text'] = '[field_dc_date_publication_year][field_dc_date_orginial_year]';
   $handler->display->display_options['fields']['field_dc_date_publication_year']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_dc_date_publication_year']['settings'] = array(
     'format_type' => 'long',
@@ -119,6 +113,13 @@ function shanti_texts_features_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
+  /* Field: Content: Author */
+  $handler->display->display_options['fields']['field_book_author']['id'] = 'field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['table'] = 'field_data_field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['field'] = 'field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['label'] = '';
+  $handler->display->display_options['fields']['field_book_author']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_book_author']['delta_offset'] = '0';
   /* Field: Content: Description */
   $handler->display->display_options['fields']['field_dc_description']['id'] = 'field_dc_description';
   $handler->display->display_options['fields']['field_dc_description']['table'] = 'field_data_field_dc_description';
