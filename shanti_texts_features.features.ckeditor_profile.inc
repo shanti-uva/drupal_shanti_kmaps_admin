@@ -101,6 +101,7 @@ function shanti_texts_features_ckeditor_profile_defaults() {
                 'icon' => 'entity.png',
               ),
             ),
+            'active' => 0,
           ),
           'footnotes' => array(
             'name' => 'footnotes',

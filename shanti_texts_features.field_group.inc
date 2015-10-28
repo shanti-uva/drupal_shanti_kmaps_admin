@@ -76,7 +76,7 @@ function shanti_texts_features_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Metadata',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
       0 => 'field_book_author',
       1 => 'field_book_date',
@@ -87,8 +87,8 @@ function shanti_texts_features_field_group_info() {
       6 => 'field_dc_rights_creativecommons',
       7 => 'field_dc_rights_general',
       8 => 'field_general_featured_image',
-      9 => 'field_kmap_places',
-      10 => 'field_kmap_term',
+      9 => 'field_book_editor',
+      10 => 'field_book_translator',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -106,27 +106,31 @@ function shanti_texts_features_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_test|node|book|form';
-  $field_group->group_name = 'group_test';
+  $field_group->identifier = 'group_kmap_terms|node|book|form';
+  $field_group->group_name = 'group_kmap_terms';
   $field_group->entity_type = 'node';
   $field_group->bundle = 'book';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Test',
-    'weight' => '3',
-    'children' => array(),
+    'label' => 'KMap Terms',
+    'weight' => '2',
+    'children' => array(
+      0 => 'field_kmap_places',
+      1 => 'field_kmap_term',
+      2 => 'field_kmap_collections',
+    ),
     'format_type' => 'tab',
     'format_settings' => array(
       'formatter' => 'closed',
       'instance_settings' => array(
         'description' => '',
-        'classes' => '',
+        'classes' => 'group-kmap-terms field-group-tab',
         'required_fields' => 1,
       ),
     ),
   );
-  $export['group_test|node|book|form'] = $field_group;
+  $export['group_kmap_terms|node|book|form'] = $field_group;
 
   return $export;
 }
