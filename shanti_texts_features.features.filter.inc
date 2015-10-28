@@ -23,6 +23,11 @@ function shanti_texts_features_filter_default_formats() {
         'status' => 1,
         'settings' => array(),
       ),
+      'media_filter' => array(
+        'weight' => -42,
+        'status' => 1,
+        'settings' => array(),
+      ),
       'filter_htmlcorrector' => array(
         'weight' => -41,
         'status' => 1,

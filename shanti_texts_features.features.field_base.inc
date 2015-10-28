@@ -125,6 +125,64 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'date',
   );
 
+  // Exported field_base: 'field_book_editor'
+  $field_bases['field_book_editor'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_book_editor',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_book_translator'
+  $field_bases['field_book_translator'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_book_translator',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_dc_date_orginial_year'
   $field_bases['field_dc_date_orginial_year'] = array(
     'active' => 1,
@@ -329,6 +387,28 @@ function shanti_texts_features_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'image',
+  );
+
+  // Exported field_base: 'field_kmap_collections'
+  $field_bases['field_kmap_collections'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_kmap_collections',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'id' => array(
+        0 => 'id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'shanti_kmaps_fields',
+    'settings' => array(
+      'kmap_domain' => 'subjects',
+    ),
+    'translatable' => 0,
+    'type' => 'shanti_kmaps_fields_default',
   );
 
   // Exported field_base: 'field_kmap_places'
