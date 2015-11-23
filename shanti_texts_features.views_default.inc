@@ -40,11 +40,12 @@ function shanti_texts_features_views_default_views() {
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options'] = '6, 24, 96';
   $handler->display->display_options['pager']['options']['preset'] = 'shanti_default';
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
-    'field_book_author' => 'field_book_author',
     'field_dc_date_orginial_year' => 'field_dc_date_orginial_year',
     'field_dc_date_publication_year' => 'field_dc_date_publication_year',
+    'field_book_author' => 'field_book_author',
   );
   /* Header: Global: Result summary */
   $handler->display->display_options['header']['result']['id'] = 'result';
@@ -58,6 +59,17 @@ function shanti_texts_features_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Sorry, no texts match your search terms. Please try again.';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
+  /* Relationship: OG membership: Group Node from OG membership */
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['id'] = 'og_membership_related_node_group';
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['field'] = 'og_membership_related_node_group';
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['label'] = 'Collection';
+  /* Relationship: OG membership: Group Node from OG membership */
+  $handler->display->display_options['relationships']['og_membership_related_node_group_1']['id'] = 'og_membership_related_node_group_1';
+  $handler->display->display_options['relationships']['og_membership_related_node_group_1']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_membership_related_node_group_1']['field'] = 'og_membership_related_node_group';
+  $handler->display->display_options['relationships']['og_membership_related_node_group_1']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['relationships']['og_membership_related_node_group_1']['label'] = 'Parent Collection';
   /* Field: Content: Featured image */
   $handler->display->display_options['fields']['field_general_featured_image']['id'] = 'field_general_featured_image';
   $handler->display->display_options['fields']['field_general_featured_image']['table'] = 'field_data_field_general_featured_image';
@@ -131,6 +143,34 @@ function shanti_texts_features_views_default_views() {
   $handler->display->display_options['fields']['field_dc_description']['settings'] = array(
     'trim_length' => '600',
   );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_2']['id'] = 'title_2';
+  $handler->display->display_options['fields']['title_2']['table'] = 'node';
+  $handler->display->display_options['fields']['title_2']['field'] = 'title';
+  $handler->display->display_options['fields']['title_2']['relationship'] = 'og_membership_related_node_group_1';
+  $handler->display->display_options['fields']['title_2']['label'] = '';
+  $handler->display->display_options['fields']['title_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_2']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title_2']['alter']['text'] = '[title_2] > ';
+  $handler->display->display_options['fields']['title_2']['element_label_colon'] = FALSE;
+  /* Field: Collection */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Collection';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[title_2][title_1]';
+  $handler->display->display_options['fields']['nothing']['element_class'] = 'collection';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -205,6 +245,28 @@ function shanti_texts_features_views_default_views() {
   $handler = $view->new_display('page', 'All', 'page_3');
   $handler->display->display_options['path'] = 'alltexts';
 
+  /* Display: By Subject */
+  $handler = $view->new_display('page', 'By Subject', 'page_1');
+  $handler->display->display_options['display_description'] = 'All Texts by Subject KMap ID';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Subjects (field_kmap_term:id) */
+  $handler->display->display_options['arguments']['field_kmap_term_id']['id'] = 'field_kmap_term_id';
+  $handler->display->display_options['arguments']['field_kmap_term_id']['table'] = 'field_data_field_kmap_term';
+  $handler->display->display_options['arguments']['field_kmap_term_id']['field'] = 'field_kmap_term_id';
+  $handler->display->display_options['arguments']['field_kmap_term_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_kmap_term_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_kmap_term_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_kmap_term_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_kmap_term_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_kmap_term_id']['validate']['type'] = 'php';
+  $handler->display->display_options['arguments']['field_kmap_term_id']['validate_options']['code'] = '$parents = shanti_kmaps_fields_get_my_parents(\'field_kmap_term\',$argument);
+$new_arg = $argument .\'+\'. implode(\'+\',$parents);
+$new_arg = preg_replace("/(subjects|places)-/","",$new_arg);
+$handler->argument = $new_arg;
+return 1;';
+  $handler->display->display_options['arguments']['field_kmap_term_id']['break_phrase'] = TRUE;
+  $handler->display->display_options['path'] = 'alltexts/subjects/%';
+
   /* Display: By Place */
   $handler = $view->new_display('page', 'By Place', 'page_2');
   $handler->display->display_options['display_description'] = 'All Texts by Place KMap ID';
@@ -228,27 +290,170 @@ return 1;';
   $handler->display->display_options['arguments']['field_kmap_places_id']['break_phrase'] = TRUE;
   $handler->display->display_options['path'] = 'alltexts/places/%';
 
-  /* Display: By Subject */
-  $handler = $view->new_display('page', 'By Subject', 'page_1');
-  $handler->display->display_options['display_description'] = 'All Texts by Subject KMap ID';
+  /* Display: By Collection */
+  $handler = $view->new_display('page', 'By Collection', 'page_by_collection');
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Subjects (field_kmap_term:id) */
-  $handler->display->display_options['arguments']['field_kmap_term_id']['id'] = 'field_kmap_term_id';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['table'] = 'field_data_field_kmap_term';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['field'] = 'field_kmap_term_id';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_kmap_term_id']['validate']['type'] = 'php';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['validate_options']['code'] = '$parents = shanti_kmaps_fields_get_my_parents(\'field_kmap_term\',$argument);
-$new_arg = $argument .\'+\'. implode(\'+\',$parents);
-$new_arg = preg_replace("/(subjects|places)-/","",$new_arg);
-$handler->argument = $new_arg;
-return 1;';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['break_phrase'] = TRUE;
-  $handler->display->display_options['path'] = 'alltexts/subjects/%';
+  /* Contextual filter: Content: Collection (field_og_collection_ref) */
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['id'] = 'field_og_collection_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['field'] = 'field_og_collection_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['break_phrase'] = TRUE;
+  $handler->display->display_options['path'] = 'alltexts/collections/%';
+
+  /* Display: My */
+  $handler = $view->new_display('page', 'My', 'page_4');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    2 => '2',
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Author uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'node';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['path'] = 'mytexts';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'My Texts';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'menu-test';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Pane by Collection */
+  $handler = $view->new_display('panel_pane', 'Pane by Collection', 'panel_pane_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'All Texts by Collection';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<h3><i class="icon shanticon-texts"></i>[title]</h3>';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'book-view-card-title';
+  /* Field: Content: Author */
+  $handler->display->display_options['fields']['field_book_author']['id'] = 'field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['table'] = 'field_data_field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['field'] = 'field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['label'] = '';
+  $handler->display->display_options['fields']['field_book_author']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_book_author']['delta_offset'] = '0';
+  /* Field: Content: Original publication year */
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['id'] = 'field_dc_date_orginial_year';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['table'] = 'field_data_field_dc_date_orginial_year';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['field'] = 'field_dc_date_orginial_year';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['label'] = '';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['alter']['text'] = '[[field_dc_date_orginial_year]]';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Publication year */
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['id'] = 'field_dc_date_publication_year';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['table'] = 'field_data_field_dc_date_publication_year';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['field'] = 'field_dc_date_publication_year';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['label'] = '';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['alter']['text'] = '[field_dc_date_publication_year] [field_dc_date_orginial_year]';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Description */
+  $handler->display->display_options['fields']['field_dc_description']['id'] = 'field_dc_description';
+  $handler->display->display_options['fields']['field_dc_description']['table'] = 'field_data_field_dc_description';
+  $handler->display->display_options['fields']['field_dc_description']['field'] = 'field_dc_description';
+  $handler->display->display_options['fields']['field_dc_description']['label'] = '';
+  $handler->display->display_options['fields']['field_dc_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_description']['element_wrapper_class'] = 'book-view-card-desc';
+  $handler->display->display_options['fields']['field_dc_description']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_dc_description']['settings'] = array(
+    'trim_length' => '600',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_2']['id'] = 'title_2';
+  $handler->display->display_options['fields']['title_2']['table'] = 'node';
+  $handler->display->display_options['fields']['title_2']['field'] = 'title';
+  $handler->display->display_options['fields']['title_2']['relationship'] = 'og_membership_related_node_group_1';
+  $handler->display->display_options['fields']['title_2']['label'] = '';
+  $handler->display->display_options['fields']['title_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_2']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title_2']['alter']['text'] = '[title_2] > ';
+  $handler->display->display_options['fields']['title_2']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[title_2][title_1]';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Collection (field_og_collection_ref) */
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['id'] = 'field_og_collection_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['field'] = 'field_og_collection_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['pane_title'] = 'All Texts by Collection';
+  $handler->display->display_options['pane_description'] = 'View All Texts by Colleciton';
+  $handler->display->display_options['pane_category']['name'] = 'SHANTI';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+  $handler->display->display_options['allow']['use_pager'] = 'use_pager';
+  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 'fields_override';
+  $handler->display->display_options['argument_input'] = array(
+    'field_og_collection_ref_target_id' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Collection (field_og_collection_ref)',
+    ),
+  );
+  $handler->display->display_options['inherit_panels_path'] = '1';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -313,6 +518,31 @@ return 1;';
   $handler->display->display_options['fields']['field_dc_description']['settings'] = array(
     'trim_length' => '600',
   );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['title_1']['label'] = '';
+  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_2']['id'] = 'title_2';
+  $handler->display->display_options['fields']['title_2']['table'] = 'node';
+  $handler->display->display_options['fields']['title_2']['field'] = 'title';
+  $handler->display->display_options['fields']['title_2']['relationship'] = 'og_membership_related_node_group_1';
+  $handler->display->display_options['fields']['title_2']['label'] = '';
+  $handler->display->display_options['fields']['title_2']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title_2']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title_2']['alter']['text'] = '[title_2] > ';
+  $handler->display->display_options['fields']['title_2']['element_label_colon'] = FALSE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[title_2][title_1]';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['pane_description'] = 'View All Texts';
   $handler->display->display_options['allow']['use_pager'] = 'use_pager';
   $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
@@ -334,31 +564,6 @@ return 1;';
     ),
   );
   $handler->display->display_options['inherit_panels_path'] = '1';
-
-  /* Display: My */
-  $handler = $view->new_display('page', 'My', 'page_4');
-  $handler->display->display_options['defaults']['access'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    2 => '2',
-  );
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Author uid */
-  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['table'] = 'node';
-  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'current_user';
-  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['path'] = 'mytexts';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'My Texts';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'menu-test';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['all_texts'] = $view;
 
   $view = new view();
