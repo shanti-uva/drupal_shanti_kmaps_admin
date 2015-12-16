@@ -2,6 +2,7 @@
 /**
  * @file
  * Code for the SHANTI Texts Features feature.
+ * TEST
  */
 
 include_once 'shanti_texts_features.features.inc';
