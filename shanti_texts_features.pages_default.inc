@@ -59,6 +59,23 @@ function shanti_texts_features_default_page_manager_pages() {
   $page->default_handlers[$handler->name] = $handler;
   $pages['front_page'] = $page;
 
+  $page = new stdClass();
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
+  $page->api_version = 1;
+  $page->name = 'front_page_new';
+  $page->task = 'page';
+  $page->admin_title = 'Front Page';
+  $page->admin_description = '';
+  $page->path = 'home';
+  $page->access = array();
+  $page->menu = array();
+  $page->arguments = array();
+  $page->conf = array(
+    'admin_paths' => FALSE,
+  );
+  $page->default_handlers = array();
+  $pages['front_page_new'] = $page;
+
   return $pages;
 
 }

@@ -90,19 +90,6 @@ function shanti_texts_features_ckeditor_profile_defaults() {
             'buttons' => FALSE,
             'default' => 'f',
           ),
-          'drupalentity' => array(
-            'name' => 'drupalentity',
-            'desc' => 'Plugin for embedding entities',
-            'path' => '/sites/all/modules/entity_embed/js/plugins/drupalentity/',
-            'default' => 'f',
-            'buttons' => array(
-              'node' => array(
-                'label' => 'Content',
-                'icon' => 'entity.png',
-              ),
-            ),
-            'active' => 0,
-          ),
           'footnotes' => array(
             'name' => 'footnotes',
             'desc' => 'SHANTI verson of CKEditor Footnotes.',
