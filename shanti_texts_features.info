@@ -199,4 +199,5 @@ features_exclude[field_instance][taxonomy_term-places-field_sameas_kmapid] = tax
 features_exclude[field_instance][taxonomy_term-subjects-field_sameas_kmapid] = taxonomy_term-subjects-field_sameas_kmapid
 features_exclude[taxonomy][places] = places
 features_exclude[taxonomy][subjects] = subjects
+no autodetect = 1
 project path = sites/all/modules
