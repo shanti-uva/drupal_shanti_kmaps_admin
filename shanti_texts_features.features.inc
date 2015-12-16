@@ -74,22 +74,6 @@ function shanti_texts_features_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'collection' => array(
-      'name' => t('Collection'),
-      'base' => 'node_content',
-      'description' => t('Collections are used to organize media assets into broad thematic or organizational subsets that can be used to control access to their contents. Collections also contain users with assigned roles, so that project teams can collaboratively create and edit assets. Collections may also contain Subcollections, to further organize contents, users, and permissions.'),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
-    'subcollection' => array(
-      'name' => t('Subcollection'),
-      'base' => 'node_content',
-      'description' => t('Subcollections can be used to partition Collections into groups of assets and users that owner may not want shared across an entire Collection. The contents of Subcollections remain part of their parent Collections. '),
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
   );
   drupal_alter('node_info', $items);
   return $items;

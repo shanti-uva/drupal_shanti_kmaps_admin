@@ -1793,8 +1793,9 @@ function shanti_texts_features_field_default_field_instances() {
   $field_instances['node-book-field_og_collection_ref'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'The Collection or Subcollection to which this text belongs. ',
     'display' => array(
       'book_pubreader' => array(
         'label' => 'above',
@@ -1821,10 +1822,9 @@ function shanti_texts_features_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
-          'links' => 1,
-          'view_mode' => 'teaser',
+          'link' => 1,
         ),
-        'type' => 'entityreference_entity_view',
+        'type' => 'entityreference_label',
         'weight' => 0,
       ),
       'search_index' => array(
@@ -1862,6 +1862,17 @@ function shanti_texts_features_field_default_field_instances() {
           ),
           'status' => TRUE,
         ),
+        'prepopulate' => array(
+          'action' => 'disable',
+          'action_on_edit' => 0,
+          'fallback' => 'none',
+          'providers' => array(
+            'og_context' => 0,
+            'url' => 1,
+          ),
+          'skip_perm' => 0,
+          'status' => 1,
+        ),
       ),
       'user_register_form' => FALSE,
     ),
@@ -1874,6 +1885,88 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-book-group_content_access'
+  $field_instances['node-book-group_content_access'] = array(
+    'bundle' => 'book',
+    'default_value' => array(
+      0 => array(
+        'value' => 1,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Determine if this text should be made public or visible only to those in its Collection.',
+    'display' => array(
+      'book_pubreader' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 22,
+      ),
+      'embed' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_index' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'whole' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'group_content_access',
+    'label' => 'Visibility',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'view modes' => array(
+      'full' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'type' => 'list_default',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 10,
+    ),
+    'widget_type' => 'options_select',
+  );
+
   // Exported field_instance: 'node-collection-body'
   $field_instances['node-collection-body'] = array(
     'bundle' => 'collection',
@@ -1882,7 +1975,7 @@ function shanti_texts_features_field_default_field_instances() {
     'description' => 'Say something about this Collection.',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -1943,7 +2036,7 @@ function shanti_texts_features_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -1954,7 +2047,7 @@ function shanti_texts_features_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
@@ -2015,7 +2108,7 @@ function shanti_texts_features_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -2031,10 +2124,10 @@ function shanti_texts_features_field_default_field_instances() {
     'description' => 'Determine if this is an OG group.',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'og_ui',
         'settings' => array(
-          'field_name' => FALSE,
+          'field_name' => 0,
         ),
         'type' => 'og_group_subscribe',
         'weight' => 2,
@@ -2073,7 +2166,7 @@ function shanti_texts_features_field_default_field_instances() {
         'og_hide' => TRUE,
       ),
       'type' => 'options_onoff',
-      'weight' => 1,
+      'weight' => 4,
     ),
   );
 
@@ -2084,36 +2177,18 @@ function shanti_texts_features_field_default_field_instances() {
     'deleted' => 0,
     'description' => '',
     'display' => array(
-      'book_pubreader' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
-      ),
-      'embed' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 8,
-      ),
-      'whole' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
       ),
     ),
     'entity_type' => 'node',
@@ -2132,7 +2207,7 @@ function shanti_texts_features_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -2140,44 +2215,27 @@ function shanti_texts_features_field_default_field_instances() {
   $field_instances['node-subcollection-field_og_parent_collection_ref'] = array(
     'bundle' => 'subcollection',
     'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
     'deleted' => 0,
     'description' => '',
     'display' => array(
-      'book_pubreader' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
       'default' => array(
-        'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 3,
-      ),
-      'embed' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 0,
+        'weight' => 2,
       ),
-      'whole' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+      'teaser' => array(
+        'label' => 'inline',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -2196,6 +2254,17 @@ function shanti_texts_features_field_default_field_instances() {
           ),
           'status' => TRUE,
         ),
+        'prepopulate' => array(
+          'action' => 'disable',
+          'action_on_edit' => 0,
+          'fallback' => 'none',
+          'providers' => array(
+            'og_context' => 0,
+            'url' => 1,
+          ),
+          'skip_perm' => 0,
+          'status' => 1,
+        ),
       ),
       'user_register_form' => FALSE,
     ),
@@ -2204,7 +2273,7 @@ function shanti_texts_features_field_default_field_instances() {
       'module' => 'og',
       'settings' => array(),
       'type' => 'og_complex',
-      'weight' => 1,
+      'weight' => 3,
     ),
   );
 
@@ -2219,38 +2288,17 @@ function shanti_texts_features_field_default_field_instances() {
     'deleted' => 0,
     'description' => 'Determine if this is an OG group.',
     'display' => array(
-      'book_pubreader' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
       'default' => array(
         'label' => 'inline',
-        'module' => 'og_ui',
-        'settings' => array(
-          'field_name' => FALSE,
-        ),
-        'type' => 'og_group_subscribe',
-        'weight' => 0,
-      ),
-      'embed' => array(
-        'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 9,
-      ),
-      'whole' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
       ),
     ),
     'display_label' => 1,
@@ -2280,7 +2328,7 @@ function shanti_texts_features_field_default_field_instances() {
         'og_hide' => TRUE,
       ),
       'type' => 'options_onoff',
-      'weight' => 2,
+      'weight' => 5,
     ),
   );
 
@@ -2294,6 +2342,7 @@ function shanti_texts_features_field_default_field_instances() {
   t('Date');
   t('Description');
   t('Determine if this is an OG group.');
+  t('Determine if this text should be made public or visible only to those in its Collection.');
   t('Editor');
   t('Featured image');
   t('Group');
@@ -2307,7 +2356,9 @@ function shanti_texts_features_field_default_field_instances() {
   t('Rights (CC)');
   t('Say something about this Collection.');
   t('Subjects');
+  t('The Collection or Subcollection to which this text belongs. ');
   t('Translator');
+  t('Visibility');
   t('status');
 
   return $field_instances;

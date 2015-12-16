@@ -74,15 +74,6 @@ function shanti_texts_features_user_default_permissions() {
     'module' => 'ckeditor_link',
   );
 
-  // Exported permission: 'administer group'.
-  $permissions['administer group'] = array(
-    'name' => 'administer group',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'og',
-  );
-
   // Exported permission: 'administer shanti texts'.
   $permissions['administer shanti texts'] = array(
     'name' => 'administer shanti texts',
@@ -148,13 +139,6 @@ function shanti_texts_features_user_default_permissions() {
     'module' => 'book',
   );
 
-  // Exported permission: 'create subcollection content'.
-  $permissions['create subcollection content'] = array(
-    'name' => 'create subcollection content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'customize ckeditor'.
   $permissions['customize ckeditor'] = array(
     'name' => 'customize ckeditor',
@@ -173,45 +157,12 @@ function shanti_texts_features_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any collection content'.
-  $permissions['delete any collection content'] = array(
-    'name' => 'delete any collection content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any subcollection content'.
-  $permissions['delete any subcollection content'] = array(
-    'name' => 'delete any subcollection content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete own book content'.
   $permissions['delete own book content'] = array(
     'name' => 'delete own book content',
     'roles' => array(
       'authenticated user' => 'authenticated user',
     ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own collection content'.
-  $permissions['delete own collection content'] = array(
-    'name' => 'delete own collection content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own subcollection content'.
-  $permissions['delete own subcollection content'] = array(
-    'name' => 'delete own subcollection content',
-    'roles' => array(),
     'module' => 'node',
   );
 
@@ -224,45 +175,12 @@ function shanti_texts_features_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any collection content'.
-  $permissions['edit any collection content'] = array(
-    'name' => 'edit any collection content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any subcollection content'.
-  $permissions['edit any subcollection content'] = array(
-    'name' => 'edit any subcollection content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit own book content'.
   $permissions['edit own book content'] = array(
     'name' => 'edit own book content',
     'roles' => array(
       'authenticated user' => 'authenticated user',
     ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own collection content'.
-  $permissions['edit own collection content'] = array(
-    'name' => 'edit own collection content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own subcollection content'.
-  $permissions['edit own subcollection content'] = array(
-    'name' => 'edit own subcollection content',
-    'roles' => array(),
     'module' => 'node',
   );
 

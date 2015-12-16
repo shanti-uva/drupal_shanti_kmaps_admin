@@ -275,13 +275,13 @@ function shanti_texts_features_strongarm() {
         'custom_settings' => TRUE,
       ),
       'book_pubreader' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'whole' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'embed' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,

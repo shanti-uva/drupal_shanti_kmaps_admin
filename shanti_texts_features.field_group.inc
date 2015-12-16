@@ -24,6 +24,7 @@ function shanti_texts_features_field_group_info() {
     'weight' => '5',
     'children' => array(
       0 => 'field_admin_status',
+      1 => 'field_book_collection_sync',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -116,6 +117,7 @@ function shanti_texts_features_field_group_info() {
     'weight' => '4',
     'children' => array(
       0 => 'field_og_collection_ref',
+      1 => 'group_content_access',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -144,8 +146,6 @@ function shanti_texts_features_field_group_info() {
     'children' => array(
       0 => 'field_kmap_places',
       1 => 'field_kmap_term',
-      2 => 'field_kmaps_subjects',
-      3 => 'field_kmaps_places',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
