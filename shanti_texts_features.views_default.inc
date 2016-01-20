@@ -249,22 +249,6 @@ function shanti_texts_features_views_default_views() {
   $handler = $view->new_display('page', 'By Subject', 'page_1');
   $handler->display->display_options['display_description'] = 'All Texts by Subject KMap ID';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Subjects (field_kmap_term:id) */
-  $handler->display->display_options['arguments']['field_kmap_term_id']['id'] = 'field_kmap_term_id';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['table'] = 'field_data_field_kmap_term';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['field'] = 'field_kmap_term_id';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_kmap_term_id']['validate']['type'] = 'php';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['validate_options']['code'] = '$parents = shanti_kmaps_fields_get_my_parents(\'field_kmap_term\',$argument);
-$new_arg = $argument .\'+\'. implode(\'+\',$parents);
-$new_arg = preg_replace("/(subjects|places)-/","",$new_arg);
-$handler->argument = $new_arg;
-return 1;';
-  $handler->display->display_options['arguments']['field_kmap_term_id']['break_phrase'] = TRUE;
   $handler->display->display_options['path'] = 'alltexts/subjects/%';
 
   /* Display: By Place */
