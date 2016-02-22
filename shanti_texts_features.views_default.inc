@@ -661,6 +661,350 @@ return 1;';
   $export['all_texts'] = $view;
 
   $view = new view();
+  $view->name = 'all_texts_open';
+  $view->description = 'A view to search all texts';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'All Texts Open';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'All Texts';
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Search';
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['pager']['type'] = 'pagerer';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '36';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options'] = '6, 24, 96';
+  $handler->display->display_options['pager']['options']['preset'] = 'shanti_default';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_dc_date_orginial_year' => 'field_dc_date_orginial_year',
+    'field_dc_date_publication_year' => 'field_dc_date_publication_year',
+    'field_book_author' => 'field_book_author',
+  );
+  /* Header: Global: Result summary */
+  $handler->display->display_options['header']['result']['id'] = 'result';
+  $handler->display->display_options['header']['result']['table'] = 'views';
+  $handler->display->display_options['header']['result']['field'] = 'result';
+  $handler->display->display_options['header']['result']['content'] = '<div class="view-result-count-info">Displaying @start - @end of @total texts</div>';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Sorry, no texts match your search terms. Please try again.';
+  $handler->display->display_options['empty']['area']['format'] = 'full_html';
+  /* Field: Content: Featured image */
+  $handler->display->display_options['fields']['field_general_featured_image']['id'] = 'field_general_featured_image';
+  $handler->display->display_options['fields']['field_general_featured_image']['table'] = 'field_data_field_general_featured_image';
+  $handler->display->display_options['fields']['field_general_featured_image']['field'] = 'field_general_featured_image';
+  $handler->display->display_options['fields']['field_general_featured_image']['label'] = '';
+  $handler->display->display_options['fields']['field_general_featured_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_general_featured_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_general_featured_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_general_featured_image']['settings'] = array(
+    'image_style' => 'card_square',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<h3><i class="icon shanticon-texts"></i>[title]</h3>';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'book-view-card-title';
+  /* Field: Content: Original publication year */
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['id'] = 'field_dc_date_orginial_year';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['table'] = 'field_data_field_dc_date_orginial_year';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['field'] = 'field_dc_date_orginial_year';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['label'] = '';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['alter']['text'] = ' [[field_dc_date_orginial_year]]';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Publication year */
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['id'] = 'field_dc_date_publication_year';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['table'] = 'field_data_field_dc_date_publication_year';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['field'] = 'field_dc_date_publication_year';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['label'] = '';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['alter']['text'] = '[field_dc_date_publication_year][field_dc_date_orginial_year]';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Author */
+  $handler->display->display_options['fields']['field_book_author']['id'] = 'field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['table'] = 'field_data_field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['field'] = 'field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['label'] = '';
+  $handler->display->display_options['fields']['field_book_author']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_book_author']['delta_offset'] = '0';
+  /* Field: Content: Description */
+  $handler->display->display_options['fields']['field_dc_description']['id'] = 'field_dc_description';
+  $handler->display->display_options['fields']['field_dc_description']['table'] = 'field_data_field_dc_description';
+  $handler->display->display_options['fields']['field_dc_description']['field'] = 'field_dc_description';
+  $handler->display->display_options['fields']['field_dc_description']['label'] = '';
+  $handler->display->display_options['fields']['field_dc_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_description']['element_wrapper_class'] = 'book-view-card-desc';
+  $handler->display->display_options['fields']['field_dc_description']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_dc_description']['settings'] = array(
+    'trim_length' => '600',
+  );
+  /* Field: Content: Collection */
+  $handler->display->display_options['fields']['field_og_collection_ref']['id'] = 'field_og_collection_ref';
+  $handler->display->display_options['fields']['field_og_collection_ref']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['field_og_collection_ref']['field'] = 'field_og_collection_ref';
+  $handler->display->display_options['fields']['field_og_collection_ref']['label'] = '';
+  $handler->display->display_options['fields']['field_og_collection_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_og_collection_ref']['settings'] = array(
+    'link' => 0,
+  );
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'book' => 'book',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Book: Depth */
+  $handler->display->display_options['filters']['depth']['id'] = 'depth';
+  $handler->display->display_options['filters']['depth']['table'] = 'book_menu_links';
+  $handler->display->display_options['filters']['depth']['field'] = 'depth';
+  $handler->display->display_options['filters']['depth']['value']['value'] = '1';
+  $handler->display->display_options['filters']['depth']['group'] = 1;
+  /* Filter criterion: Content: Title */
+  $handler->display->display_options['filters']['title']['id'] = 'title';
+  $handler->display->display_options['filters']['title']['table'] = 'node';
+  $handler->display->display_options['filters']['title']['field'] = 'title';
+  $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['group'] = 1;
+  $handler->display->display_options['filters']['title']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
+  $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
+  $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_items'] = '20';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_field'] = 'title';
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['title']['expose']['autocomplete_dependent'] = 0;
+  /* Filter criterion: Content: Author (field_book_author) */
+  $handler->display->display_options['filters']['field_book_author_value']['id'] = 'field_book_author_value';
+  $handler->display->display_options['filters']['field_book_author_value']['table'] = 'field_data_field_book_author';
+  $handler->display->display_options['filters']['field_book_author_value']['field'] = 'field_book_author_value';
+  $handler->display->display_options['filters']['field_book_author_value']['operator'] = 'contains';
+  $handler->display->display_options['filters']['field_book_author_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_book_author_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['operator_id'] = 'field_book_author_value_op';
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['label'] = 'Author';
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['operator'] = 'field_book_author_value_op';
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['identifier'] = 'field_book_author_value';
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['autocomplete_items'] = '10';
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['autocomplete_min_chars'] = '0';
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['autocomplete_field'] = 'field_book_author';
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['autocomplete_raw_suggestion'] = 1;
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['autocomplete_raw_dropdown'] = 1;
+  $handler->display->display_options['filters']['field_book_author_value']['expose']['autocomplete_dependent'] = 0;
+
+  /* Display: All */
+  $handler = $view->new_display('page', 'All', 'page_3');
+  $handler->display->display_options['path'] = 'alltexts_open';
+
+  /* Display: By Subject */
+  $handler = $view->new_display('page', 'By Subject', 'page_1');
+  $handler->display->display_options['display_description'] = 'All Texts by Subject KMap ID';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['path'] = 'alltexts_open/subjects/%';
+
+  /* Display: By Place */
+  $handler = $view->new_display('page', 'By Place', 'page_2');
+  $handler->display->display_options['display_description'] = 'All Texts by Place KMap ID';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Places (field_kmap_places:id) */
+  $handler->display->display_options['arguments']['field_kmap_places_id']['id'] = 'field_kmap_places_id';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['table'] = 'field_data_field_kmap_places';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['field'] = 'field_kmap_places_id';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_kmap_places_id']['validate']['type'] = 'php';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['validate_options']['code'] = '$parents = shanti_kmaps_fields_get_my_parents(\'field_kmap_places\',$argument);
+$new_arg = $argument .\'+\'. implode(\'+\',$parents);
+$new_arg = preg_replace("/(subjects|places)-/","",$new_arg);
+$handler->argument = $new_arg;
+return 1;';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['validate']['fail'] = 'empty';
+  $handler->display->display_options['arguments']['field_kmap_places_id']['break_phrase'] = TRUE;
+  $handler->display->display_options['path'] = 'alltexts_open/places/%';
+
+  /* Display: By Collection */
+  $handler = $view->new_display('page', 'By Collection', 'page_by_collection');
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Collection (field_og_collection_ref) */
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['id'] = 'field_og_collection_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['field'] = 'field_og_collection_ref_target_id';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['break_phrase'] = TRUE;
+  $handler->display->display_options['path'] = 'alltexts_open/collections/%';
+
+  /* Display: Front Page */
+  $handler = $view->new_display('panel_pane', 'Front Page', 'panel_pane_1');
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<h3><i class="icon shanticon-texts"></i>[title]</h3>';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_wrapper_class'] = 'book-view-card-title';
+  /* Field: Content: Author */
+  $handler->display->display_options['fields']['field_book_author']['id'] = 'field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['table'] = 'field_data_field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['field'] = 'field_book_author';
+  $handler->display->display_options['fields']['field_book_author']['label'] = '';
+  $handler->display->display_options['fields']['field_book_author']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_book_author']['delta_offset'] = '0';
+  /* Field: Content: Original publication year */
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['id'] = 'field_dc_date_orginial_year';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['table'] = 'field_data_field_dc_date_orginial_year';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['field'] = 'field_dc_date_orginial_year';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['label'] = '';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['alter']['text'] = '[[field_dc_date_orginial_year]]';
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_date_orginial_year']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Publication year */
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['id'] = 'field_dc_date_publication_year';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['table'] = 'field_data_field_dc_date_publication_year';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['field'] = 'field_dc_date_publication_year';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['label'] = '';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['alter']['text'] = '[field_dc_date_publication_year] [field_dc_date_orginial_year]';
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_date_publication_year']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Content: Description */
+  $handler->display->display_options['fields']['field_dc_description']['id'] = 'field_dc_description';
+  $handler->display->display_options['fields']['field_dc_description']['table'] = 'field_data_field_dc_description';
+  $handler->display->display_options['fields']['field_dc_description']['field'] = 'field_dc_description';
+  $handler->display->display_options['fields']['field_dc_description']['label'] = '';
+  $handler->display->display_options['fields']['field_dc_description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_dc_description']['element_wrapper_class'] = 'book-view-card-desc';
+  $handler->display->display_options['fields']['field_dc_description']['type'] = 'text_summary_or_trimmed';
+  $handler->display->display_options['fields']['field_dc_description']['settings'] = array(
+    'trim_length' => '600',
+  );
+  /* Field: Content: Collection */
+  $handler->display->display_options['fields']['field_og_collection_ref']['id'] = 'field_og_collection_ref';
+  $handler->display->display_options['fields']['field_og_collection_ref']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['field_og_collection_ref']['field'] = 'field_og_collection_ref';
+  $handler->display->display_options['fields']['field_og_collection_ref']['label'] = '';
+  $handler->display->display_options['fields']['field_og_collection_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_og_collection_ref']['settings'] = array(
+    'link' => 1,
+  );
+  $handler->display->display_options['pane_description'] = 'View All Texts';
+  $handler->display->display_options['allow']['use_pager'] = 'use_pager';
+  $handler->display->display_options['allow']['items_per_page'] = 'items_per_page';
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
+  $handler->display->display_options['argument_input'] = array(
+    'nid' => array(
+      'type' => 'context',
+      'context' => 'entity:node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Nid',
+    ),
+  );
+  $handler->display->display_options['inherit_panels_path'] = '1';
+  $export['all_texts_open'] = $view;
+
+  $view = new view();
   $view->name = 'full_text_local';
   $view->description = '';
   $view->tag = 'default';
