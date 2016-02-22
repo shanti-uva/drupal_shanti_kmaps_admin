@@ -10,7 +10,7 @@
 function shanti_texts_features_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-book-field_admin_status'
+  // Exported field_instance: 'node-book-field_admin_status'.
   $field_instances['node-book-field_admin_status'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -40,7 +40,7 @@ function shanti_texts_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 15,
       ),
       'metadata' => array(
         'label' => 'above',
@@ -62,10 +62,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 10,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 16,
       ),
       'whole' => array(
         'label' => 'above',
@@ -127,7 +127,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_book_author'
+  // Exported field_instance: 'node-book-field_book_author'.
   $field_instances['node-book-field_book_author'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -249,7 +249,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_book_content'
+  // Exported field_instance: 'node-book-field_book_content'.
   $field_instances['node-book-field_book_content'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -281,7 +281,7 @@ function shanti_texts_features_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 13,
       ),
       'metadata' => array(
         'label' => 'hidden',
@@ -314,7 +314,7 @@ function shanti_texts_features_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 14,
       ),
       'token' => array(
         'label' => 'inline',
@@ -385,7 +385,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_book_date'
+  // Exported field_instance: 'node-book-field_book_date'.
   $field_instances['node-book-field_book_date'] = array(
     'bundle' => 'book',
     'deleted' => 0,
@@ -427,7 +427,7 @@ function shanti_texts_features_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'metadata' => array(
         'label' => 'above',
@@ -455,10 +455,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 12,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 15,
       ),
       'whole' => array(
         'label' => 'above',
@@ -494,7 +494,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_book_editor'
+  // Exported field_instance: 'node-book-field_book_editor'.
   $field_instances['node-book-field_book_editor'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -534,10 +534,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 9,
       ),
       'whole' => array(
         'label' => 'above',
@@ -596,7 +596,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_book_translator'
+  // Exported field_instance: 'node-book-field_book_translator'.
   $field_instances['node-book-field_book_translator'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -636,10 +636,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 10,
       ),
       'whole' => array(
         'label' => 'above',
@@ -698,7 +698,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_dc_date_orginial_year'
+  // Exported field_instance: 'node-book-field_dc_date_orginial_year'.
   $field_instances['node-book-field_dc_date_orginial_year'] = array(
     'bundle' => 'book',
     'deleted' => 0,
@@ -861,7 +861,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_dc_date_publication_year'
+  // Exported field_instance: 'node-book-field_dc_date_publication_year'.
   $field_instances['node-book-field_dc_date_publication_year'] = array(
     'bundle' => 'book',
     'deleted' => 0,
@@ -1024,7 +1024,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_dc_description'
+  // Exported field_instance: 'node-book-field_dc_description'.
   $field_instances['node-book-field_dc_description'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -1082,10 +1082,8 @@ function shanti_texts_features_field_default_field_instances() {
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(
-          'trim_length' => 500,
-        ),
-        'type' => 'text_trimmed',
+        'settings' => array(),
+        'type' => 'text_default',
         'weight' => 3,
       ),
       'whole' => array(
@@ -1146,7 +1144,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_dc_language_original'
+  // Exported field_instance: 'node-book-field_dc_language_original'.
   $field_instances['node-book-field_dc_language_original'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -1209,10 +1207,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 5,
       ),
       'teaser' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 11,
       ),
       'token' => array(
         'label' => 'inline',
@@ -1281,7 +1279,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_dc_rights_creativecommons'
+  // Exported field_instance: 'node-book-field_dc_rights_creativecommons'.
   $field_instances['node-book-field_dc_rights_creativecommons'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -1337,10 +1335,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 9,
       ),
       'teaser' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 13,
       ),
       'whole' => array(
         'label' => 'inline',
@@ -1365,7 +1363,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_dc_rights_general'
+  // Exported field_instance: 'node-book-field_dc_rights_general'.
   $field_instances['node-book-field_dc_rights_general'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -1421,10 +1419,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 8,
       ),
       'teaser' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 12,
       ),
       'whole' => array(
         'label' => 'inline',
@@ -1486,7 +1484,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_general_featured_image'
+  // Exported field_instance: 'node-book-field_general_featured_image'.
   $field_instances['node-book-field_general_featured_image'] = array(
     'bundle' => 'book',
     'deleted' => 0,
@@ -1514,7 +1512,7 @@ function shanti_texts_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 14,
       ),
       'metadata' => array(
         'label' => 'hidden',
@@ -1546,12 +1544,9 @@ function shanti_texts_features_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'file_entity',
-        'settings' => array(
-          'file_view_mode' => 'teaser',
-        ),
-        'type' => 'file_rendered',
-        'weight' => 18,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'token' => array(
         'label' => 'above',
@@ -1609,7 +1604,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_kmap_places'
+  // Exported field_instance: 'node-book-field_kmap_places'.
   $field_instances['node-book-field_kmap_places'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -1669,11 +1664,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 7,
       ),
       'teaser' => array(
-        'label' => 'inline',
-        'module' => 'shanti_kmaps_fields',
+        'label' => 'hidden',
         'settings' => array(),
-        'type' => 'kmap_popover_formatter',
-        'weight' => 8,
+        'type' => 'hidden',
+        'weight' => 5,
       ),
       'whole' => array(
         'label' => 'inline',
@@ -1701,7 +1695,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_kmap_term'
+  // Exported field_instance: 'node-book-field_kmap_term'.
   $field_instances['node-book-field_kmap_term'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -1757,11 +1751,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 6,
       ),
       'teaser' => array(
-        'label' => 'inline',
-        'module' => 'shanti_kmaps_fields',
+        'label' => 'hidden',
         'settings' => array(),
-        'type' => 'kmap_popover_formatter',
-        'weight' => 7,
+        'type' => 'hidden',
+        'weight' => 6,
       ),
       'whole' => array(
         'label' => 'inline',
@@ -1789,7 +1782,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-field_og_collection_ref'
+  // Exported field_instance: 'node-book-field_og_collection_ref'.
   $field_instances['node-book-field_og_collection_ref'] = array(
     'bundle' => 'book',
     'default_value' => NULL,
@@ -1834,10 +1827,13 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 4,
       ),
       'whole' => array(
         'label' => 'above',
@@ -1885,7 +1881,7 @@ function shanti_texts_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-book-group_content_access'
+  // Exported field_instance: 'node-book-group_content_access'.
   $field_instances['node-book-group_content_access'] = array(
     'bundle' => 'book',
     'default_value' => array(
@@ -1919,7 +1915,7 @@ function shanti_texts_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 12,
       ),
       'search_index' => array(
         'label' => 'above',
@@ -1928,10 +1924,10 @@ function shanti_texts_features_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 8,
       ),
       'whole' => array(
         'label' => 'above',

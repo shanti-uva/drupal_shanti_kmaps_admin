@@ -428,6 +428,7 @@ return 1;';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['id'] = 'og_membership_related_node_group';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['field'] = 'og_membership_related_node_group';
+  $handler->display->display_options['relationships']['og_membership_related_node_group']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -632,7 +633,8 @@ return 1;';
   $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['pane_title'] = 'All Texts by Collection';
+  $handler->display->display_options['arguments']['field_og_collection_ref_target_id']['break_phrase'] = TRUE;
+  $handler->display->display_options['pane_title'] = 'All Texts by Collection + Subs';
   $handler->display->display_options['pane_description'] = 'View All Texts by Colleciton';
   $handler->display->display_options['pane_category']['name'] = 'SHANTI';
   $handler->display->display_options['pane_category']['weight'] = '0';

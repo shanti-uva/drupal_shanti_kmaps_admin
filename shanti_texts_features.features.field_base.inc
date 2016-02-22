@@ -10,21 +10,13 @@
 function shanti_texts_features_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_admin_status'
+  // Exported field_base: 'field_admin_status'.
   $field_bases['field_admin_status'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_admin_status',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -39,21 +31,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_book_author'
+  // Exported field_base: 'field_book_author'.
   $field_bases['field_book_author'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_book_author',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -68,21 +52,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_book_content'
+  // Exported field_base: 'field_book_content'.
   $field_bases['field_book_content'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_book_content',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -95,14 +71,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_book_date'
+  // Exported field_base: 'field_book_date'.
   $field_bases['field_book_date'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_book_date',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -125,21 +100,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'date',
   );
 
-  // Exported field_base: 'field_book_editor'
+  // Exported field_base: 'field_book_editor'.
   $field_bases['field_book_editor'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_book_editor',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -154,21 +121,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_book_translator'
+  // Exported field_base: 'field_book_translator'.
   $field_bases['field_book_translator'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_book_translator',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -183,14 +142,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_dc_date_orginial_year'
+  // Exported field_base: 'field_dc_date_orginial_year'.
   $field_bases['field_dc_date_orginial_year'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_dc_date_orginial_year',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -213,14 +171,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_dc_date_publication_year'
+  // Exported field_base: 'field_dc_date_publication_year'.
   $field_bases['field_dc_date_publication_year'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_dc_date_publication_year',
-    'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'date',
@@ -243,21 +200,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'datetime',
   );
 
-  // Exported field_base: 'field_dc_description'
+  // Exported field_base: 'field_dc_description'.
   $field_bases['field_dc_description'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_dc_description',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -270,21 +219,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'text_with_summary',
   );
 
-  // Exported field_base: 'field_dc_language_original'
+  // Exported field_base: 'field_dc_language_original'.
   $field_bases['field_dc_language_original'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_dc_language_original',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -299,14 +240,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_dc_rights_creativecommons'
+  // Exported field_base: 'field_dc_rights_creativecommons'.
   $field_bases['field_dc_rights_creativecommons'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_dc_rights_creativecommons',
-    'foreign keys' => array(),
     'indexes' => array(
       'licence' => array(
         0 => 'licence',
@@ -332,21 +272,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'creative_commons',
   );
 
-  // Exported field_base: 'field_dc_rights_general'
+  // Exported field_base: 'field_dc_rights_general'.
   $field_bases['field_dc_rights_general'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_dc_rights_general',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
     'indexes' => array(
       'format' => array(
         0 => 'format',
@@ -359,21 +291,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_general_featured_image'
+  // Exported field_base: 'field_general_featured_image'.
   $field_bases['field_general_featured_image'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_general_featured_image',
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -389,14 +313,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_kmap_places'
+  // Exported field_base: 'field_kmap_places'.
   $field_bases['field_kmap_places'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_kmap_places',
-    'foreign keys' => array(),
     'indexes' => array(
       'id' => array(
         0 => 'id',
@@ -411,14 +334,13 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'shanti_kmaps_fields_default',
   );
 
-  // Exported field_base: 'field_kmap_term'
+  // Exported field_base: 'field_kmap_term'.
   $field_bases['field_kmap_term'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_kmap_term',
-    'foreign keys' => array(),
     'indexes' => array(
       'id' => array(
         0 => 'id',
