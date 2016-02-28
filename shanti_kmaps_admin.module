@@ -70,7 +70,7 @@ function shanti_kmaps_admin_admin() {
     '#default_value'  => variable_get('shanti_kmaps_admin_root_subjects_id', 6403),
     '#size'           => 20,
     '#maxlength'      => 30,
-    '#description'    => t("The root subjects ID for this site. Defaults to 'Tibet and Himalyas'. You need to enter the numeric value."),
+    '#description'    => t("The root subjects ID for this site. Defaults to 'Tibet and Himalayas'. You need to enter the numeric value."),
     '#required'       => FALSE,
   );
   $form['shanti_kmaps_admin_root_places_id'] = array(
@@ -81,6 +81,16 @@ function shanti_kmaps_admin_admin() {
     '#maxlength'      => 30,
     '#description'    => t("The root places ID for this site. Defaults to 'Earth'. You need to enter the numeric value."),
     '#required'       => FALSE,
+  );
+  $form['shanti_kmaps_admin_root_subjects_path'] = array(
+      '#type'           => 'hidden',
+      '#default_value'  => variable_get('shanti_kmaps_admin_root_subjects_path', 6403),
+      '#required'       => FALSE,
+  );
+  $form['shanti_kmaps_admin_root_places_path'] = array(
+      '#type'           => 'hidden',
+      '#default_value'  => variable_get('shanti_kmaps_admin_root_places_path', 13735),
+      '#required'       => FALSE,
   );
   $form['shanti_kmaps_admin_server_subjects_explorer'] = array(
     '#type'           => 'textfield',
@@ -145,6 +155,49 @@ function shanti_kmaps_admin_admin() {
 }
 
 function shanti_kmaps_admin_admin_validate($form, &$form_state) {
+
+  if (!$form_state['values']['shanti_kmaps_admin_server_solr_terms']) {
+    if ($form_state['values']['shanti_kmaps_admin_root_subjects_id'] || $form_state['values']['shanti_kmaps_admin_root_places_id']) {
+      form_set_error('shanti_kmaps_admin_server_solr_terms',
+        t('In order to have a root subjects or places ID, you must set the KMaps Solr Server Terms Index.')
+      );
+    }
+  }
+  else { // http://stackoverflow.com/questions/15617512/get-json-object-from-url
+    $tidx = $form_state['values']['shanti_kmaps_admin_server_solr_terms'];
+
+    # Get the full path to the root subjects ID
+    if ($form_state['values']['shanti_kmaps_admin_root_subjects_id']) {
+      $json = file_get_contents($tidx . '/select?wt=json&fl=ancestor_id_path&q=id:subjects-' . $form_state['values']['shanti_kmaps_admin_root_subjects_id']);
+      $obj = json_decode($json);
+      if ($obj->response->numFound == 0) {
+        form_set_error('shanti_kmaps_admin_root_subjects_id',
+          t('This subjects ID could not be found in the KMaps Solr Server Terms Index.')
+        );
+      }
+      else {
+        $path = $obj->response->docs[0]->ancestor_id_path;
+        form_set_value($form['shanti_kmaps_admin_root_subjects_path'], $path, $form_state);
+        drupal_set_message('Setting Root KMaps Subjects Path to: ' . $path);
+      }
+    }
+
+    # Get the full path to the root places ID
+    if ($form_state['values']['shanti_kmaps_admin_root_places_id']) {
+      $json = file_get_contents($tidx . '/select?wt=json&fl=ancestor_id_path&q=id:places-' . $form_state['values']['shanti_kmaps_admin_root_places_id']);
+      $obj = json_decode($json);
+      if ($obj->response->numFound == 0) {
+        form_set_error('shanti_kmaps_admin_root_places_id',
+            t('This places ID could not be not found in the KMaps Solr Server Terms Index.')
+        );
+      }
+      else {
+        $path = $obj->response->docs[0]->ancestor_id_path;
+        form_set_value($form['shanti_kmaps_admin_root_places_path'], $path, $form_state);
+        drupal_set_message('Setting Root KMaps Places Path to: ' . $path);;
+      }
+    }
+  }
 
   # Make sure a Solr index is specfified if they opt in
   if ($form_state['values']['shanti_kmaps_admin_server_solr_opt_in'] 
