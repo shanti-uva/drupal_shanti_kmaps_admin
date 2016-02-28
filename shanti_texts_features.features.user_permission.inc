@@ -236,6 +236,7 @@ function shanti_texts_features_user_default_permissions() {
     'name' => 'show book reorder tab',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'book_made_simple',
   );
