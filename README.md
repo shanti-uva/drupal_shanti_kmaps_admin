@@ -7,7 +7,9 @@ The variables defined by the module are the following:
 * `shanti_kmaps_admin_server_places`: The URL to the Rails KMaps site page that stores KMap terms for Places.
 * `shanti_kmaps_admin_server_subjects`: The URL to the Rails KMaps site page that stores KMap terms for Subjects.
 * `shanti_kmaps_admin_root_places_id`: The root KMaps Places ID. Use to constrain searches withn a branch of the Places tree.
-* `shanti_kmaps_admin_root_subjects_id`: The root KMaps Places ID. Use to constrain searches within a branch of the Subjects tree.
+* `shanti_kmaps_admin_root_places_path`: The full path to the root KMaps Places ID. This is computed automatically from the above setting.
+* `shanti_kmaps_admin_root_subjects_id`: The root KMaps Subjects ID. Use to constrain searches within a branch of the Subjects tree.
+* `shanti_kmaps_admin_root_subjects_path`: The full path to the root KMaps Subjects ID. This is computed automatically from the above setting.
 * `shanti_kmaps_admin_server_solr_opt_in`: Allows the user to decide of the site should be indexed or not.
 * `shanti_kmaps_admin_server_solr`: The URL to the Solr Index server that stores information about Drupal assets and associated KMap Terms.
 * `shanti_kmaps_admin_solr_filter_query`: Solr filter query to apply to all queries.
