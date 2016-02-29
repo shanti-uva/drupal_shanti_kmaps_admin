@@ -74,15 +74,6 @@ function shanti_texts_features_user_default_permissions() {
     'module' => 'ckeditor_link',
   );
 
-  // Exported permission: 'administer shanti texts'.
-  $permissions['administer shanti texts'] = array(
-    'name' => 'administer shanti texts',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'shanti_texts',
-  );
-
   // Exported permission: 'administer shanti_kmaps_admin'.
   $permissions['administer shanti_kmaps_admin'] = array(
     'name' => 'administer shanti_kmaps_admin',
