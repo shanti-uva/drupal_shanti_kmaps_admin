@@ -55,6 +55,15 @@ function shanti_texts_features_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'shanti_text_body' => array(
+        'custom_settings' => FALSE,
+      ),
+      'shanti_text_meta' => array(
+        'custom_settings' => FALSE,
+      ),
+      'shanti_text_toc' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
