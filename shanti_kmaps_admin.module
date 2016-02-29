@@ -9,6 +9,8 @@ define('SHANTI_KMAPS_ADMIN_SERVER_SOLR','http://kidx.shanti.virginia.edu/solr/km
 define('SHANTI_KMAPS_ADMIN_SERVER_SOLR_TERMS','http://kidx.shanti.virginia.edu/solr/termindex');
 define('SHANTI_KMAPS_ADMIN_PATH', drupal_get_path('module','shanti_kmaps_admin'));
 define('SHANTI_KMAPS_ADMIN_ASSET_TYPES','texts,photos,audio-video,visuals,sources,subjects,places,terms,maps,agents,events');
+define('SHANTI_KMAPS_ADMIN_ROOT_SUBJECTS_ID', 6403);
+define('SHANTI_KMAPS_ADMIN_ROOT_PLACES_ID', 13735);
 
 function shanti_kmaps_admin_menu() {
   return array(
@@ -67,7 +69,7 @@ function shanti_kmaps_admin_admin() {
   $form['shanti_kmaps_admin_root_subjects_id'] = array(
     '#type'           => 'textfield',
     '#title'          => t('Root KMaps Subjects ID'),
-    '#default_value'  => variable_get('shanti_kmaps_admin_root_subjects_id', 6403),
+    '#default_value'  => variable_get('shanti_kmaps_admin_root_subjects_id', SHANTI_KMAPS_ADMIN_ROOT_SUBJECTS_ID),
     '#size'           => 20,
     '#maxlength'      => 30,
     '#description'    => t("The root subjects ID for this site. Defaults to 'Tibet and Himalayas'. You need to enter the numeric value."),
@@ -76,7 +78,7 @@ function shanti_kmaps_admin_admin() {
   $form['shanti_kmaps_admin_root_places_id'] = array(
     '#type'           => 'textfield',
     '#title'          => t('Root KMaps Places ID'),
-    '#default_value'  => variable_get('shanti_kmaps_admin_root_places_id', 13735),
+    '#default_value'  => variable_get('shanti_kmaps_admin_root_places_id', SHANTI_KMAPS_ADMIN_ROOT_SUBJECTS_ID),
     '#size'           => 20,
     '#maxlength'      => 30,
     '#description'    => t("The root places ID for this site. Defaults to 'Earth'. You need to enter the numeric value."),
@@ -84,12 +86,10 @@ function shanti_kmaps_admin_admin() {
   );
   $form['shanti_kmaps_admin_root_subjects_path'] = array(
       '#type'           => 'hidden',
-      '#default_value'  => variable_get('shanti_kmaps_admin_root_subjects_path', 6403),
       '#required'       => FALSE,
   );
   $form['shanti_kmaps_admin_root_places_path'] = array(
       '#type'           => 'hidden',
-      '#default_value'  => variable_get('shanti_kmaps_admin_root_places_path', 13735),
       '#required'       => FALSE,
   );
   $form['shanti_kmaps_admin_server_subjects_explorer'] = array(
@@ -155,7 +155,6 @@ function shanti_kmaps_admin_admin() {
 }
 
 function shanti_kmaps_admin_admin_validate($form, &$form_state) {
-
   if (!$form_state['values']['shanti_kmaps_admin_server_solr_terms']) {
     if ($form_state['values']['shanti_kmaps_admin_root_subjects_id'] || $form_state['values']['shanti_kmaps_admin_root_places_id']) {
       form_set_error('shanti_kmaps_admin_server_solr_terms',
@@ -167,32 +166,38 @@ function shanti_kmaps_admin_admin_validate($form, &$form_state) {
     $tidx = $form_state['values']['shanti_kmaps_admin_server_solr_terms'];
 
     # Get the full path to the root subjects ID
-    if ($form_state['values']['shanti_kmaps_admin_root_subjects_id']) {
-      $json = file_get_contents($tidx . '/select?wt=json&fl=ancestor_id_path&q=id:subjects-' . $form_state['values']['shanti_kmaps_admin_root_subjects_id']);
-      $obj = json_decode($json);
-      if ($obj->response->numFound == 0) {
+    if (!$form_state['values']['shanti_kmaps_admin_root_subjects_id']) {
+      form_set_value($form['shanti_kmaps_admin_root_subjects_id'], SHANTI_KMAPS_ADMIN_ROOT_SUBJECTS_ID, $form_state);
+      form_set_value($form['shanti_kmaps_admin_root_subjects_path'], SHANTI_KMAPS_ADMIN_ROOT_SUBJECTS_ID, $form_state);
+      drupal_set_message('Setting Root KMaps Subjects ID and Root KMaps Subjects Path to defaults.');
+    }
+    else {
+      $path = shanti_kmaps_admin_get_term_path('subjects-'.$form_state['values']['shanti_kmaps_admin_root_subjects_id'], $tidx);
+      if (!$path) {
         form_set_error('shanti_kmaps_admin_root_subjects_id',
           t('This subjects ID could not be found in the KMaps Solr Server Terms Index.')
         );
       }
       else {
-        $path = $obj->response->docs[0]->ancestor_id_path;
         form_set_value($form['shanti_kmaps_admin_root_subjects_path'], $path, $form_state);
         drupal_set_message('Setting Root KMaps Subjects Path to: ' . $path);
       }
     }
 
     # Get the full path to the root places ID
-    if ($form_state['values']['shanti_kmaps_admin_root_places_id']) {
-      $json = file_get_contents($tidx . '/select?wt=json&fl=ancestor_id_path&q=id:places-' . $form_state['values']['shanti_kmaps_admin_root_places_id']);
-      $obj = json_decode($json);
-      if ($obj->response->numFound == 0) {
+    if (!$form_state['values']['shanti_kmaps_admin_root_places_id']) {
+      form_set_value($form['shanti_kmaps_admin_root_places_id'], SHANTI_KMAPS_ADMIN_ROOT_PLACES_ID, $form_state);
+      form_set_value($form['shanti_kmaps_admin_root_places_path'], SHANTI_KMAPS_ADMIN_ROOT_PLACES_ID, $form_state);
+      drupal_set_message('Setting Root KMaps Places ID and Root KMaps Places Path to defaults.');
+    }
+    else {
+      $path = shanti_kmaps_admin_get_term_path('places-'.$form_state['values']['shanti_kmaps_admin_root_places_id'], $tidx);
+      if (!$path) {
         form_set_error('shanti_kmaps_admin_root_places_id',
             t('This places ID could not be not found in the KMaps Solr Server Terms Index.')
         );
       }
       else {
-        $path = $obj->response->docs[0]->ancestor_id_path;
         form_set_value($form['shanti_kmaps_admin_root_places_path'], $path, $form_state);
         drupal_set_message('Setting Root KMaps Places Path to: ' . $path);;
       }
@@ -214,7 +219,15 @@ function shanti_kmaps_admin_admin_validate($form, &$form_state) {
     form_set_value($form['shanti_kmaps_admin_asset_types'], $asset_types, $form_state);
     drupal_set_message("Removed extra spaces from the asset types list.");
   }
+}
 
+function shanti_kmaps_admin_get_term_path($id, $term_index) {
+  if (!$term_index) {
+    $term_index = variable_get('shanti_kmaps_admin_server_solr_terms', SHANTI_KMAPS_ADMIN_SERVER_SOLR_TERMS);
+  }
+  $json = file_get_contents($term_index . '/select?wt=json&fl=ancestor_id_path&q=id:' . $id);
+  $obj = json_decode($json);
+  return $obj->response->numFound == 0 ? false : $obj->response->docs[0]->ancestor_id_path;
 }
 
 function shanti_kmaps_admin_test() {
