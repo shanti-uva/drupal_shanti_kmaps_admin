@@ -235,18 +235,14 @@ function shanti_texts_features_user_default_permissions() {
   // Exported permission: 'show core Outline form element'.
   $permissions['show core Outline form element'] = array(
     'name' => 'show core Outline form element',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+    'roles' => array(),
     'module' => 'book_made_simple',
   );
 
   // Exported permission: 'show core Outline tab'.
   $permissions['show core Outline tab'] = array(
     'name' => 'show core Outline tab',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
+    'roles' => array(),
     'module' => 'book_made_simple',
   );
 

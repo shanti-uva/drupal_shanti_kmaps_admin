@@ -121,6 +121,36 @@ function shanti_texts_features_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_book_mlid'.
+  $field_bases['field_book_mlid'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_book_mlid',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'computed_field',
+    'settings' => array(
+      'code' => '$mlid = db_select(\'menu_links\' , \'ml\')->condition(\'ml.link_path\' , \'node/\' . $entity->nid)->fields(\'ml\' , array(\'mlid\'))->execute()->fetchField();
+$entity_field[0][\'value\'] = $mlid;',
+      'database' => array(
+        'data_default' => '',
+        'data_index' => 0,
+        'data_length' => 32,
+        'data_not_NULL' => 0,
+        'data_precision' => 10,
+        'data_scale' => 2,
+        'data_size' => 'normal',
+        'data_type' => 'int',
+      ),
+      'display_format' => '$display_output = $entity_field_item[\'value\'];',
+      'store' => 0,
+    ),
+    'translatable' => 0,
+    'type' => 'computed',
+  );
+
   // Exported field_base: 'field_book_translator'.
   $field_bases['field_book_translator'] = array(
     'active' => 1,

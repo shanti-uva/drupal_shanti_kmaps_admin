@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function shanti_texts_features_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -24,7 +24,6 @@ function shanti_texts_features_field_group_info() {
     'weight' => '5',
     'children' => array(
       0 => 'field_admin_status',
-      1 => 'field_book_collection_sync',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -36,7 +35,7 @@ function shanti_texts_features_field_group_info() {
       ),
     ),
   );
-  $export['group_book_admin|node|book|form'] = $field_group;
+  $field_groups['group_book_admin|node|book|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -63,7 +62,7 @@ function shanti_texts_features_field_group_info() {
       ),
     ),
   );
-  $export['group_book_content|node|book|form'] = $field_group;
+  $field_groups['group_book_content|node|book|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -101,7 +100,7 @@ function shanti_texts_features_field_group_info() {
       'formatter' => 'closed',
     ),
   );
-  $export['group_book_metadata|node|book|form'] = $field_group;
+  $field_groups['group_book_metadata|node|book|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -129,7 +128,7 @@ function shanti_texts_features_field_group_info() {
       ),
     ),
   );
-  $export['group_collection|node|book|form'] = $field_group;
+  $field_groups['group_collection|node|book|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -157,7 +156,15 @@ function shanti_texts_features_field_group_info() {
       ),
     ),
   );
-  $export['group_kmap_terms|node|book|form'] = $field_group;
+  $field_groups['group_kmap_terms|node|book|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Admin');
+  t('Catalog Data');
+  t('Collection');
+  t('Content');
+  t('KMap Terms');
+
+  return $field_groups;
 }

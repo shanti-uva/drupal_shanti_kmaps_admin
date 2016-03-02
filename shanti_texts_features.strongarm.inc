@@ -64,6 +64,9 @@ function shanti_texts_features_strongarm() {
       'shanti_text_toc' => array(
         'custom_settings' => FALSE,
       ),
+      'meta' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
