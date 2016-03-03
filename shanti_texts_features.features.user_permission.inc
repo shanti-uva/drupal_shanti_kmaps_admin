@@ -19,6 +19,16 @@ function shanti_texts_features_user_default_permissions() {
     'module' => 'ckeditor_link',
   );
 
+  // Exported permission: 'access media browser'.
+  $permissions['access media browser'] = array(
+    'name' => 'access media browser',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'media',
+  );
+
   // Exported permission: 'access printer-friendly version'.
   $permissions['access printer-friendly version'] = array(
     'name' => 'access printer-friendly version',
@@ -52,7 +62,9 @@ function shanti_texts_features_user_default_permissions() {
   // Exported permission: 'administer books'.
   $permissions['administer books'] = array(
     'name' => 'administer books',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'book_made_simple',
   );
 
@@ -148,6 +160,15 @@ function shanti_texts_features_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any image files'.
+  $permissions['delete any image files'] = array(
+    'name' => 'delete any image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'delete own book content'.
   $permissions['delete own book content'] = array(
     'name' => 'delete own book content',
@@ -155,6 +176,34 @@ function shanti_texts_features_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete own image files'.
+  $permissions['delete own image files'] = array(
+    'name' => 'delete own image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download any image files'.
+  $permissions['download any image files'] = array(
+    'name' => 'download any image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download own image files'.
+  $permissions['download own image files'] = array(
+    'name' => 'download own image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'edit any book content'.
@@ -166,6 +215,15 @@ function shanti_texts_features_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any image files'.
+  $permissions['edit any image files'] = array(
+    'name' => 'edit any image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'edit own book content'.
   $permissions['edit own book content'] = array(
     'name' => 'edit own book content',
@@ -173,6 +231,16 @@ function shanti_texts_features_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit own image files'.
+  $permissions['edit own image files'] = array(
+    'name' => 'edit own image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'publish any book content'.
@@ -235,14 +303,18 @@ function shanti_texts_features_user_default_permissions() {
   // Exported permission: 'show core Outline form element'.
   $permissions['show core Outline form element'] = array(
     'name' => 'show core Outline form element',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'book_made_simple',
   );
 
   // Exported permission: 'show core Outline tab'.
   $permissions['show core Outline tab'] = array(
     'name' => 'show core Outline tab',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'book_made_simple',
   );
 
