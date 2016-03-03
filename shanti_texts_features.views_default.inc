@@ -1828,6 +1828,7 @@ return 1;';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
@@ -2088,6 +2089,12 @@ return 1;';
   $handler->display->display_options['filters']['type']['value'] = array(
     'book' => 'book',
   );
+  /* Filter criterion: Book: Depth */
+  $handler->display->display_options['filters']['depth']['id'] = 'depth';
+  $handler->display->display_options['filters']['depth']['table'] = 'book_menu_links';
+  $handler->display->display_options['filters']['depth']['field'] = 'depth';
+  $handler->display->display_options['filters']['depth']['operator'] = '>';
+  $handler->display->display_options['filters']['depth']['value']['value'] = '1';
 
   /* Display: Default */
   $handler = $view->new_display('panel_pane', 'Default', 'panel_pane_default');
@@ -2134,6 +2141,7 @@ return 1;';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Nid */
