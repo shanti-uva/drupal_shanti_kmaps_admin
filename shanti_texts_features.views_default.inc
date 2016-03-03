@@ -1704,6 +1704,100 @@ return 1;';
   $export['single_text_body'] = $view;
 
   $view = new view();
+  $view->name = 'single_text_kmaps';
+  $view->description = 'View of all the kmap terms associated with a text';
+  $view->tag = 'SHANTI Texts';
+  $view->base_table = 'node';
+  $view->human_name = 'Single Text KMaps';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  /* Relationship: Book: Top level book */
+  $handler->display->display_options['relationships']['bid']['id'] = 'bid';
+  $handler->display->display_options['relationships']['bid']['table'] = 'book';
+  $handler->display->display_options['relationships']['bid']['field'] = 'bid';
+  $handler->display->display_options['relationships']['bid']['required'] = TRUE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Places */
+  $handler->display->display_options['fields']['field_kmap_places']['id'] = 'field_kmap_places';
+  $handler->display->display_options['fields']['field_kmap_places']['table'] = 'field_data_field_kmap_places';
+  $handler->display->display_options['fields']['field_kmap_places']['field'] = 'field_kmap_places';
+  $handler->display->display_options['fields']['field_kmap_places']['alter']['text'] = 'Places in [title]: [field_kmap_places] ';
+  $handler->display->display_options['fields']['field_kmap_places']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kmap_places']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_kmap_places']['click_sort_column'] = 'raw';
+  $handler->display->display_options['fields']['field_kmap_places']['type'] = 'kmap_popover_formatter';
+  $handler->display->display_options['fields']['field_kmap_places']['settings'] = array(
+    'target' => '_blank',
+  );
+  $handler->display->display_options['fields']['field_kmap_places']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_kmap_places']['multi_type'] = 'ul';
+  /* Field: Content: Subjects */
+  $handler->display->display_options['fields']['field_kmap_term']['id'] = 'field_kmap_term';
+  $handler->display->display_options['fields']['field_kmap_term']['table'] = 'field_data_field_kmap_term';
+  $handler->display->display_options['fields']['field_kmap_term']['field'] = 'field_kmap_term';
+  $handler->display->display_options['fields']['field_kmap_term']['alter']['text'] = 'Subjects in [title]: [field_kmap_term]';
+  $handler->display->display_options['fields']['field_kmap_term']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kmap_term']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_kmap_term']['click_sort_column'] = 'raw';
+  $handler->display->display_options['fields']['field_kmap_term']['type'] = 'kmap_popover_formatter';
+  $handler->display->display_options['fields']['field_kmap_term']['settings'] = array(
+    'target' => '_blank',
+  );
+  $handler->display->display_options['fields']['field_kmap_term']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_kmap_term']['multi_type'] = 'ul';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'bid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'book' => 'book',
+  );
+
+  /* Display: Default */
+  $handler = $view->new_display('panel_pane', 'Default', 'panel_pane_default');
+  $export['single_text_kmaps'] = $view;
+
+  $view = new view();
   $view->name = 'single_text_meta';
   $view->description = '';
   $view->tag = 'SHANTI Texts';
@@ -1736,10 +1830,7 @@ return 1;';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'div';
-  $handler->display->display_options['fields']['title']['element_class'] = 'book-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Description */
@@ -1813,7 +1904,8 @@ return 1;';
     'target' => '_blank',
   );
   $handler->display->display_options['fields']['field_kmap_term']['delta_offset'] = '0';
-  $handler->display->display_options['fields']['field_kmap_term']['separator'] = ' ';
+  $handler->display->display_options['fields']['field_kmap_term']['multi_type'] = 'ul';
+  $handler->display->display_options['fields']['field_kmap_term']['separator'] = '';
   /* Field: Content: Places */
   $handler->display->display_options['fields']['field_kmap_places']['id'] = 'field_kmap_places';
   $handler->display->display_options['fields']['field_kmap_places']['table'] = 'field_data_field_kmap_places';
@@ -1830,6 +1922,7 @@ return 1;';
     'target' => '_blank',
   );
   $handler->display->display_options['fields']['field_kmap_places']['delta_offset'] = '0';
+  $handler->display->display_options['fields']['field_kmap_places']['multi_type'] = 'ul';
   $handler->display->display_options['fields']['field_kmap_places']['separator'] = ' ';
   /* Field: Content: Rights */
   $handler->display->display_options['fields']['field_dc_rights_general']['id'] = 'field_dc_rights_general';
@@ -1996,8 +2089,8 @@ return 1;';
     'book' => 'book',
   );
 
-  /* Display: Fields */
-  $handler = $view->new_display('panel_pane', 'Fields', 'panel_pane_default');
+  /* Display: Default */
+  $handler = $view->new_display('panel_pane', 'Default', 'panel_pane_default');
   $handler->display->display_options['pane_title'] = 'Text TOC';
   $handler->display->display_options['pane_description'] = 'Use in a panel or template for viewing combined texts.';
   $handler->display->display_options['pane_category']['name'] = 'SHANTI Texts';
@@ -2035,6 +2128,14 @@ return 1;';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -2054,7 +2155,6 @@ return 1;';
   $handler->display->display_options['fields']['nothing']['alter']['alt'] = 'View book in NIH PubReader';
   $handler->display->display_options['fields']['nothing']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['nothing']['element_default_classes'] = FALSE;
   /* Field: Voyant Link */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
@@ -2067,7 +2167,6 @@ return 1;';
   $handler->display->display_options['fields']['nothing_1']['alter']['alt'] = 'View book in Voyant tools';
   $handler->display->display_options['fields']['nothing_1']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['nothing_1']['element_default_classes'] = FALSE;
   /* Field: Display */
   $handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
   $handler->display->display_options['fields']['nothing_2']['table'] = 'views';
@@ -2101,8 +2200,8 @@ return 1;';
     'book' => 'book',
   );
 
-  /* Display: Fields */
-  $handler = $view->new_display('panel_pane', 'Fields', 'panel_pane_default');
+  /* Display: Default */
+  $handler = $view->new_display('panel_pane', 'Default', 'panel_pane_default');
   $handler->display->display_options['pane_category']['name'] = 'SHANTI Texts';
   $handler->display->display_options['pane_category']['weight'] = '0';
   $export['single_text_views'] = $view;
