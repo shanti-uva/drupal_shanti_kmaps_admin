@@ -1831,6 +1831,14 @@ return 1;';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Collection */
+  $handler->display->display_options['fields']['field_og_collection_ref']['id'] = 'field_og_collection_ref';
+  $handler->display->display_options['fields']['field_og_collection_ref']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['field_og_collection_ref']['field'] = 'field_og_collection_ref';
+  $handler->display->display_options['fields']['field_og_collection_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_og_collection_ref']['settings'] = array(
+    'link' => 1,
+  );
   /* Field: Content: Description */
   $handler->display->display_options['fields']['field_dc_description']['id'] = 'field_dc_description';
   $handler->display->display_options['fields']['field_dc_description']['table'] = 'field_data_field_dc_description';
