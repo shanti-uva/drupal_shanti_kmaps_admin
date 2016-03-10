@@ -1658,7 +1658,7 @@ return 1;';
   $handler->display->display_options['sorts']['p']['id'] = 'p';
   $handler->display->display_options['sorts']['p']['table'] = 'book_menu_links';
   $handler->display->display_options['sorts']['p']['field'] = 'p';
-  $handler->display->display_options['sorts']['p']['sort_within_level'] = 0;
+  $handler->display->display_options['sorts']['p']['sort_within_level'] = 1;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
@@ -2062,6 +2062,11 @@ return 1;';
   $handler->display->display_options['fields']['title']['alter']['path'] = '#shanti-texts-[nid]';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Sort criterion: Book: Hierarchy */
+  $handler->display->display_options['sorts']['p']['id'] = 'p';
+  $handler->display->display_options['sorts']['p']['table'] = 'book_menu_links';
+  $handler->display->display_options['sorts']['p']['field'] = 'p';
+  $handler->display->display_options['sorts']['p']['sort_within_level'] = 1;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
