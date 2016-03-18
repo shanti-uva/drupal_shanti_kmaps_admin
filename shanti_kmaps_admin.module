@@ -221,8 +221,8 @@ function shanti_kmaps_admin_admin_validate($form, &$form_state) {
   }
 }
 
-function shanti_kmaps_admin_get_term_path($id, $term_index) {
-  if (!$term_index) {
+function shanti_kmaps_admin_get_term_path($id, $term_index = NULL) {
+  if ($term_index == NULL) {
     $term_index = variable_get('shanti_kmaps_admin_server_solr_terms', SHANTI_KMAPS_ADMIN_SERVER_SOLR_TERMS);
   }
   $json = file_get_contents($term_index . '/select?wt=json&fl=ancestor_id_path&q=id:' . $id);
