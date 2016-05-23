@@ -20,21 +20,21 @@ function shanti_kmaps_admin_menu() {
       'page callback'     => 'drupal_get_form',
       'page arguments'    => array('shanti_kmaps_admin_admin'),
       'access arguments'  => array('administer shanti_kmaps_admin'),
-      'type'              => MENU_NORMAL_ITEM,      
+      'type'              => MENU_NORMAL_ITEM,
     ),
     'shanti_kmaps_admin/test' => array(
       'title'             => 'SHANTI KMaps Admin Test',
       'page callback'     => 'shanti_kmaps_admin_test',
       'page arguments'    => '',
       'access arguments'  => array('administer shanti_kmaps_admin'),
-      'type'              => MENU_NORMAL_ITEM,            
+      'type'              => MENU_NORMAL_ITEM,
     ),
     'shanti_kmaps_admin/vars_json' => array(
       'title' => 'SHANTI KMaps Admin Vars as JSON',
       'page callback'     => 'shanti_kmaps_admin_vars_json',
       'page arguments'    => '',
       'access arguments'  => array('administer shanti_kmaps_admin'),
-      'type'              => MENU_NORMAL_ITEM,            
+      'type'              => MENU_NORMAL_ITEM,
     ),
   );
 }
@@ -78,7 +78,7 @@ function shanti_kmaps_admin_admin() {
   $form['shanti_kmaps_admin_root_places_id'] = array(
     '#type'           => 'textfield',
     '#title'          => t('Root KMaps Places ID'),
-    '#default_value'  => variable_get('shanti_kmaps_admin_root_places_id', SHANTI_KMAPS_ADMIN_ROOT_SUBJECTS_ID),
+    '#default_value'  => variable_get('shanti_kmaps_admin_root_places_id', SHANTI_KMAPS_ADMIN_ROOT_PLACES_ID),
     '#size'           => 20,
     '#maxlength'      => 30,
     '#description'    => t("The root places ID for this site. Defaults to 'Earth' == 13735. You need to enter the numeric value."),
@@ -151,7 +151,7 @@ function shanti_kmaps_admin_admin() {
     '#description'    => t("A comma delimited list of asset types, used throughout the KMap system.<br/>These values should be lowercase plurals with no spaces.<br/>Ideally, this list would come from somewhere authoritative, such as the Rail KMaps server itself."),
     '#required'       => TRUE,
   );
-  return system_settings_form($form);  
+  return system_settings_form($form);
 }
 
 function shanti_kmaps_admin_admin_validate($form, &$form_state) {
@@ -205,9 +205,9 @@ function shanti_kmaps_admin_admin_validate($form, &$form_state) {
   }
 
   # Make sure a Solr index is specfified if they opt in
-  if ($form_state['values']['shanti_kmaps_admin_server_solr_opt_in'] 
+  if ($form_state['values']['shanti_kmaps_admin_server_solr_opt_in']
     && !$form_state['values']['shanti_kmaps_admin_server_solr']) {
-    form_set_error('shanti_kmaps_admin_server_solr', 
+    form_set_error('shanti_kmaps_admin_server_solr',
       t('You must enter something for the Solr index, since you have chosen to publish to the SHANTI KMap Solr Index.')
     );
   }
