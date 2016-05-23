@@ -112,7 +112,7 @@
                     others = Object.keys(filtered[namespace]);
                     others.splice(others.indexOf(type), 1);
                 }
-                /*  kmaps navigator
+                /*  how kmaps navigator deals with the domain
                  var domain = (settings.kmaps_explorer) ? settings.kmaps_explorer.app : 'places';
                  */
                 var search = '';
