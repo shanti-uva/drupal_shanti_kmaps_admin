@@ -6,7 +6,6 @@
 
     // local "globals"
     var filtered = {};
-    var S = {}; // Settings passed
 
     // utility functions
     function extractKMapID(line) {
@@ -63,16 +62,7 @@
 
         attach: function (context, settings) {
 
-            S = settings.shanti_kmaps_fields;
-
             var admin = settings.shanti_kmaps_admin;
-
-            /* kmaps navigator
-            var domain = (settings.kmaps_explorer) ? settings.kmaps_explorer.app : 'places';
-            var root_kmap_path = domain == 'subjects' ? admin.shanti_kmaps_admin_root_subjects_path : admin.shanti_kmaps_admin_root_places_path;
-            var base_url = domain == 'subjects' ? admin.shanti_kmaps_admin_server_subjects : admin.shanti_kmaps_admin_server_places;
-            var root_kmapid = domain == 'subjects' ? admin.shanti_kmaps_admin_root_subjects_id : admin.shanti_kmaps_admin_root_places_id;
-            */
 
             $('.kmap-filter-box').once('shanti-kmaps').each(function () {
                 var type = $(this).attr('data-search-filter');
@@ -115,18 +105,16 @@
                 var $filter = $(this);
                 var type = $filter.attr('data-search-filter'); //feature_type or associated_subject
                 var namespace = getNamespace($filter, '-search-filter-' + type);
+                var nsettings = admin.kmaps_filter[namespace];
+                var root_kmap_path = nsettings.root_kmap_path ? nsettings.root_kmap_path : nsettings.domain == 'subjects' ?  admin.shanti_kmaps_admin_root_subjects_path : admin.shanti_kmaps_admin_root_places_path;
                 var others = [];
                 if (filtered[namespace]) {
                     others = Object.keys(filtered[namespace]);
                     others.splice(others.indexOf(type), 1);
                 }
-
-                // kmaps fields
-                // var widget = settings.shanti_kmaps_fields[my_field];
-                // var root_kmap_path = widget.root_kmap_path ? widget.root_kmap_path : widget.domain == 'subjects' ? admin.shanti_kmaps_admin_root_subjects_path : admin.shanti_kmaps_admin_root_places_path;
-                var root_kmap_path = admin.shanti_kmaps_admin_root_places_path;
-                var domain = 'places';
-
+                /* kmaps navigator
+                 var domain = (settings.kmaps_explorer) ? settings.kmaps_explorer.app : 'places';
+                 */
                 var search = '';
                 $filter.kmapsTypeahead({
                     term_index: admin.shanti_kmaps_admin_server_solr_terms,
@@ -137,7 +125,7 @@
                     selected: 'omit',
                     prefetch_facets: 'on',
                     prefetch_field: type + 's', //feature_types or associated_subjects
-                    prefetch_filters: ['tree:' + domain, 'ancestor_id_path:' + root_kmap_path],
+                    prefetch_filters: ['tree:' + nsettings.domain, 'ancestor_id_path:' + root_kmap_path],
                     max_terms: 50
                 }).bind('typeahead:asyncrequest',
                     function () {
