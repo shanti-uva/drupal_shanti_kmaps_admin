@@ -279,15 +279,24 @@ function shanti_kmaps_admin_theme()
         'shanti_kmaps_filter' => array(
             'path' => drupal_get_path('module', 'shanti_kmaps_admin') . '/templates',
             'template' => 'shanti_kmaps_filter',
-            'render element' => 'filter',
+            'render element' => 'el',
+        ),
+        'shanti_kmaps_typeahead' => array(
+            'path' => drupal_get_path('module', 'shanti_kmaps_admin') . '/templates',
+            'template' => 'shanti_kmaps_typeahead',
+            'render element' => 'el',
         ),
     );
 }
 
 function template_preprocess_shanti_kmaps_filter(&$vars) {
     // http://themery.com/dgd7/advanced-theming/forms/with-templates
-    $filter = $vars['filter'];
-    $vars['namespace'] = $filter['#namespace'];
-    $vars['display'] = $filter['#filter_display'];
-    $vars['type'] = $filter['#filter_type'];
+    $vars['namespace'] = $vars['el']['#namespace'];
+    $vars['display'] = $vars['el']['#filter_display'];
+    $vars['type'] = $vars['el']['#filter_type'];
+}
+
+function template_preprocess_shanti_kmaps_typeahead(&$vars) {
+    $vars['namespace'] = $vars['el']['#namespace'];
+    $vars['domain'] = ucfirst($vars['el']['#domain']);
 }
