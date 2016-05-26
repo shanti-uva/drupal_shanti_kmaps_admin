@@ -1,13 +1,41 @@
 .kmap-filter {
     clear: both;
+    padding-top:1rem;
 }
-.kmap-filter-box .selected-kmap:not(:first-child):before {
-    content: 'OR';
-    display: inline-block;
-    width: 2.3em;
+.kmap-filter-box{
+    padding-left: 1rem;
 }
-.kmap-filter-box.kmaps-conjunctive-filters .selected-kmap:not(:first-child):before {
-    content: 'AND';
+.kmap-filter .kmaps-tt-header{
+    padding-top:0.6rem;
+}
+.kmap-filter .kmaps-tt-header .close{
+    position: relative;
+    top: -0.4rem;
+    right: -1rem;
+}
+.kmap-filter .kmaps-tt-header .close::before{
+    position: relative;
+    right: 0.7rem;
+    top: -0.6rem;
+}
+.kmap-filter-box .selected-kmap:not(:first-child)::before{
+    content: '(or)';
+    width: 2.2em;
+    color: #888;
     display: inline-block;
-    width: 2.8em;
+}
+.kmap-filter-box.kmaps-conjunctive-filters .selected-kmap:not(:first-child)::before{
+    content: '(and)';
+    width: 3em;
+    color: #888;
+    display: inline-block;
+}
+.kmap-filter label{
+    text-transform: capitalize;
+    padding-left:1rem;
+    font-weight: normal;
+}
+.kmap-filter label span{
+    text-transform: uppercase;
+    font-weight: bold;
 }

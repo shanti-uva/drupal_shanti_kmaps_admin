@@ -6,46 +6,32 @@
     padding: 0 5px 0 0;
 }
 
-.selected-kmap {
-    float:left;
-    color:green;
-    border-radius:3px;
-    border:1px solid gray;
-    width:auto;
-    padding:.25em .5em;
-    margin:0 .25em .25em 0;
-    background-color:white;
-}
-
-/* TAKEN FROM SARVAKA */
-
-.selected-kmap {
-    color: #555;
+.selected-kmap{
+    color: #333;
     font-size: 0.93em;
     font-family: 'museo-sans-500', helvetica, arial, sans-serif;
     border: none;
-    padding: 0.3rem 0 0.3rem 0.8rem;
+    float: left;
+    margin: 0 0.25em 0.25em 0;
+    padding: 0.3rem 0 0.3rem 0.4rem;
     background-color: transparent;
 }
 
-.selected-kmap:hover {
+.selected-kmap:hover{
     color: #555;
     background-color: transparent;
 }
 
-.selected-kmap .shanticon-close2:before {
+.selected-kmap .shanticon-close2:before{
     color: #888;
     position: relative;
-    /* top: 0.15rem; */
-    /* font-size: 1.12em; */
-    top: 0.05rem;
-    font-size: 1.5em;
+    top: 0.15rem;
+    font-size: 1.12em;
     cursor:pointer;
-    /* content: '\E60F'; */
-    content: '\2297';
+    content: '\e60f';
     font-family:'shanticon';
 }
 
-.selected-kmap:hover .shanticon-close2:before {
+.selected-kmap:hover .shanticon-close2:before{
     color: red;
 }

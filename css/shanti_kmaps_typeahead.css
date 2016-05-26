@@ -1,3 +1,67 @@
 .kmap-typeahead-picker {
     clear: both;
 }
+
+/* FROM Sarvaka Mediabase mediabase-edit-form.css */
+
+/**
+* BEGIN Typeahead Menu
+*/
+.kmaps-tt-menu,
+.twitter-typeahead {
+    padding-top: 0 !important;
+    text-rendering: optimizeSpeed;
+}
+.kmaps-tt-header{
+    background-color: #eee;
+    font-weight: bold;
+    border-top: 2px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 8px 20px 4px 14px;
+}
+.kmaps-tt-header:first-of-type {
+    border-top: none;
+    margin-top: 0;
+    border-radius: 0.8rem 0.8rem 0 0;
+    display: block;
+    width: 100%;
+}
+/* These are the search headers which have pagers. The filters do not have pagers. */
+.kmap-typeahead-picker .kmaps-tt-header:first-of-type{
+    position: relative;
+    height: 60px !important;
+    padding-top:1rem;
+}
+.typeahead-pager.pager{
+    font-size: 85%;
+    position: absolute;
+    right: 0.7rem;
+    bottom: 0.4rem;
+}
+.kmaps-tt-header .close{
+    position: relative;
+    top: -0.7rem;
+    right: -0.5rem;
+    opacity: 0.3;
+    font-size: 2em;
+}
+.kmaps-tt-header .close::before{
+    content: 'Close';
+    display: inline-block;
+    position: relative;
+    right: 1rem;
+    top: -0.65rem;
+    /*width: 30px;
+    height: 9px;*/
+    font-size: 0.44em;
+    font-family: arial, tahoma, sans-serif;
+}
+.kmap-typeahead-picker label{
+    text-transform: capitalize;
+    padding-left:1rem;
+    font-weight: normal;
+}
+.kmap-typeahead-picker label span{
+    text-transform: uppercase;
+    font-weight: bold;
+}

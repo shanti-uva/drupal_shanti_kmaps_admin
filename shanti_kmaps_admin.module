@@ -299,6 +299,14 @@ function shanti_kmaps_admin_search_filters($namespace) {
     return $filters;
 }
 
+function shanti_kmaps_admin_search_field($namespace, $domain) {
+    return array(
+        '#theme' => 'shanti_kmaps_typeahead',
+        '#namespace' => $namespace,
+        '#domain' => $domain,
+    );
+}
+
 function shanti_kmaps_admin_theme()
 {
     return array(
