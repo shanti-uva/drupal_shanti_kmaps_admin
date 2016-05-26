@@ -10,6 +10,5 @@
     <label><span>Search:</span> Select KMaps <?php print $domain; ?></label>
     <input id="<?php print $namespace; ?>-search-term"
            class="kmap-search-term form-control form-text" type="text"
-           data-search-filter="<?php print $type; ?>"
            placeholder="Search <?php print $domain; ?>">
 </div>
