@@ -115,7 +115,6 @@
                 /*  kmaps navigator domain handling
                  var domain = (settings.kmaps_explorer) ? settings.kmaps_explorer.app : 'places';
                  */
-                var search = '';
                 $filter.kmapsTypeahead({
                     term_index: admin.shanti_kmaps_admin_server_solr_terms,
                     domain: 'subjects', // always Filter by Subject
@@ -127,11 +126,7 @@
                     prefetch_field: type + 's', //feature_types or associated_subjects
                     prefetch_filters: ['tree:' + nsettings.domain, 'ancestor_id_path:' + root_kmap_path],
                     max_terms: 50
-                }).bind('typeahead:asyncrequest',
-                    function () {
-                        search = $filter.typeahead('val'); //get search term
-                    }
-                ).bind('typeahead:select',
+                }).bind('typeahead:select',
                     function (ev, suggestion) {
                         if (suggestion.count > 0) { // should not be able to select zero-result filters
                             var mode = suggestion.refacet ? 'AND' : 'OR';
@@ -148,7 +143,7 @@
                                 getFilter(namespace, others[i]).kmapsTypeahead('refetchPrefetch', fq);
                             }
                             $filter.kmapsTypeahead('refacetPrefetch', fq);
-                            $filter.kmapsTypeahead('setValue', search, false);
+                            $filter.kmapsTypeahead('setValue', '', false); // reset filter after selection
                         }
                     }
                 );
