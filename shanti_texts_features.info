@@ -34,7 +34,6 @@ dependencies[] = options
 dependencies[] = page_manager
 dependencies[] = pagerer
 dependencies[] = publishcontent
-dependencies[] = quicktabs
 dependencies[] = search_api
 dependencies[] = search_api_autocomplete
 dependencies[] = search_api_db
