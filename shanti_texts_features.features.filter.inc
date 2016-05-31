@@ -18,18 +18,23 @@ function shanti_texts_features_filter_default_formats() {
     'status' => 1,
     'weight' => -10,
     'filters' => array(
+      'filter_mathjax' => array(
+        'weight' => -50,
+        'status' => 1,
+        'settings' => array(),
+      ),
       'ckeditor_link_filter' => array(
-        'weight' => -44,
+        'weight' => -49,
         'status' => 1,
         'settings' => array(),
       ),
       'media_filter' => array(
-        'weight' => -42,
+        'weight' => -48,
         'status' => 1,
         'settings' => array(),
       ),
       'filter_htmlcorrector' => array(
-        'weight' => -41,
+        'weight' => -47,
         'status' => 1,
         'settings' => array(),
       ),

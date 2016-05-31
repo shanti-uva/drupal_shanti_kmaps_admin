@@ -32,7 +32,7 @@ function shanti_texts_features_ckeditor_profile_defaults() {
         'toolbar' => '[
     [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'NumberedList\',\'BulletedList\',\'Outdent\',\'Indent\',\'Blockquote\',\'CreateDiv\'],
     [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\'],
-    [\'Find\',\'Replace\'],
+    [\'Find\',\'Replace\',\'Mathjax\'],
     \'/\',
     [\'Format\',\'Styles\',\'-\',\'Cut\',\'Copy\',\'Paste\',\'PasteText\',\'PasteFromWord\'],
     [\'Footnotes\',\'node\',\'Unlink\',\'Link\',\'Anchor\',\'Media\',\'Table\',\'HorizontalRule\',\'SpecialChar\'],
@@ -101,6 +101,18 @@ function shanti_texts_features_ckeditor_profile_defaults() {
                 'label' => 'Insert footnote',
               ),
             ),
+          ),
+          'mathjax' => array(
+            'name' => 'mathjax',
+            'desc' => 'Plugin for inserting Mathematical Formula (MathJax). See <a href="http://ckeditor.com/addon/mathjax">addon page</a> for more details. See <a href="/admin/help/ckeditor#mathjax">help</a> for additional instructions.',
+            'path' => '//cdn.ckeditor.com/4.5.3/full-all/plugins/mathjax/',
+            'buttons' => array(
+              'Mathjax' => array(
+                'icon' => 'icons/mathjax.png',
+                'label' => 'Insert Mathematical Formulas',
+              ),
+            ),
+            'default' => 'f',
           ),
           'media' => array(
             'name' => 'media',

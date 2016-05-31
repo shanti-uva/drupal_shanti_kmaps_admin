@@ -2562,6 +2562,8 @@ function shanti_texts_features_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'kmap_term_limit' => 100,
+      'search_filters' => array(),
+      'search_root_kmap_path' => NULL,
       'search_root_kmapid' => NULL,
       'search_view' => 'alltexts/places/__KMAPID__',
       'user_register_form' => FALSE,
@@ -2713,6 +2715,8 @@ function shanti_texts_features_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'kmap_term_limit' => 100,
+      'search_filters' => array(),
+      'search_root_kmap_path' => NULL,
       'search_root_kmapid' => NULL,
       'search_view' => 'alltexts/subjects/__KMAPID__',
       'user_register_form' => FALSE,
