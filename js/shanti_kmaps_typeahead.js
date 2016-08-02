@@ -11,9 +11,9 @@
             var admin = settings.shanti_kmaps_admin;
 
             $('.kmap-typeahead-picker').once('shanti-kmaps').each(function () {
-                console.log('process');
                 var $typeahead = $('.kmap-search-term', this);
                 var $searchreset = $('button.searchreset', this);
+                console.log($searchreset);
                 $searchreset.click(function() {
                    console.log('reset search'); 
                 });
