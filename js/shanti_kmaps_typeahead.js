@@ -16,7 +16,7 @@
                 $picker.find('.kmap-search-term').focusout(function(e) {
                     var $typeahead = $(e.target);
                     if ($picker.find($('button.searchreset:hover')).length) {
-                        $typeahead.setValue('', false);
+                        $typeahead.kmapsTypeahead('setValue', '', false);
                     }
                 });
             });
