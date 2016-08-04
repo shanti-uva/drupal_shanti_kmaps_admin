@@ -15,9 +15,10 @@
                         processing = true;
                         $(e.target).kmapsTypeahead('setValue', '', false);
                         window.setTimeout(function () {
-                            $reset.hide(); // try this
+                            console.log('hiding reset');
+                            $reset.hide();
                             processing = false;
-                        }, 2000);
+                        }, 250);
                     }
                 });
             });
