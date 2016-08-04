@@ -13,11 +13,12 @@
                 $picker.find('.kmap-search-term').focusout(function (e) {
                     if (!processing && $reset.is(':hover')) {
                         processing = true;
+                        $reset.hide();
                         $(e.target).kmapsTypeahead('setValue', '', false);
                         window.setTimeout(function () {
                             $reset.hide();
                             processing = false;
-                        }, 200);
+                        }, 300);
                     }
                 });
             });
