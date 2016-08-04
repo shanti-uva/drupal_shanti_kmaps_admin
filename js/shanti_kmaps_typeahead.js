@@ -18,6 +18,8 @@
                             window.setTimeout(function () {
                                 processing = false;
                             }, 2000);
+                            $reset.hide();
+                            return true;
                         }
                     }
                 });
