@@ -15,7 +15,6 @@
                         processing = true;
                         $(e.target).kmapsTypeahead('setValue', '', false);
                         window.setTimeout(function () {
-                            console.log('hiding reset');
                             $reset.hide();
                             processing = false;
                         }, 100);
