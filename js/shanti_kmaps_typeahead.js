@@ -18,7 +18,7 @@
                             console.log('hiding reset');
                             $reset.hide();
                             processing = false;
-                        }, 250);
+                        }, 100);
                     }
                 });
             });
