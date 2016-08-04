@@ -17,7 +17,7 @@
                         window.setTimeout(function () {
                             $reset.hide();
                             processing = false;
-                        }, 100);
+                        }, 200);
                     }
                 });
             });
