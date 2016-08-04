@@ -15,7 +15,7 @@
                         processing = true;
                         $(e.target).kmapsTypeahead('setValue', '', false);
                         window.setTimeout(function () {
-                            $reset.hide();
+                            $reset.hide(); // try this
                             processing = false;
                         }, 2000);
                     }
