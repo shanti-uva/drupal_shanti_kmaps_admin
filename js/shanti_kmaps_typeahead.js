@@ -12,12 +12,11 @@
 
             $('.kmap-typeahead-picker').once('shanti-kmaps').each(function () {
                 var $picker = $(this);
-                var $typeahead = $('.kmap-search-term', this);
-                // var $searchreset = $('button.searchreset', this);
-                $typeahead.focusout(function() {
-                    console.log('focusout');
-                    if ($('button.searchreset:hover', $picker).length) {
-                        console.log('clicked');
+                // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
+                $picker.find('.kmap-search-term').focusout(function(e) {
+                    var $typeahead = $(e.target);
+                    if ($picker.find($('button.searchreset:hover')).length) {
+                        $typeahead.setValue('', false);
                     }
                 });
             });
