@@ -11,7 +11,7 @@
                 // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
                 $picker.find('.kmap-search-term').focusout(function(e) {
                     if ($reset.is(':hover')) {
-                        $(e.target).kmapsTypeahead('setValue', '', true);
+                        $(e.target).kmapsTypeahead('setValue', '', false);
                     }
                     $reset.hide();
                     return false;
