@@ -15,11 +15,13 @@
                         if ($reset.is(':hover')) {
                             processing = true;
                             $(e.target).kmapsTypeahead('setValue', '', false);
-                            window.setTimeout(function () {
+                            //window.setTimeout(function () {
                                 processing = false;
-                            }, 250);
+                            //}, 250);
                         }
                     }
+                    $reset.hide();
+                    return false;
                 });
             });
         },
