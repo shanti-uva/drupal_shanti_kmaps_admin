@@ -12,8 +12,9 @@
                 var processing = false;
                 $picker.find('.kmap-search-term').focusout(function(e) {
                     if (!processing) {
-                        if ($reset.is(':hover') && e.target.value != '') {
+                        if ($reset.is(':hover')) {
                             processing = true;
+                            console.log(e.target.value);
                             window.setTimeout(function () {
                                 $(e.target).kmapsTypeahead('setValue', '', false);
                                 processing = false;
