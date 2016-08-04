@@ -12,11 +12,10 @@
                 var processing = false;
                 $picker.find('.kmap-search-term').focusout(function(e) {
                     if (!processing) {
-                        if ($reset.is(':hover')) {
+                        if ($reset.is(':hover') && e.target.value != '') {
                             processing = true;
                             window.setTimeout(function () {
                                 $(e.target).kmapsTypeahead('setValue', '', false);
-                                $reset.hide();
                                 processing = false;
                             }, 250);
                         }
