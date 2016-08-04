@@ -9,12 +9,17 @@
                 var $picker = $(this);
                 var $reset = $picker.find('button.searchreset');
                 // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
+                var processing = false;
                 $picker.find('.kmap-search-term').focusout(function(e) {
-                    if ($reset.is(':hover')) {
-                        $(e.target).kmapsTypeahead('setValue', '', false);
+                    if (!processing) {
+                        if ($reset.is(':hover')) {
+                            processing = true;
+                            $(e.target).kmapsTypeahead('setValue', '', false);
+                            window.setTimeout(function () {
+                                processing = false;
+                            }, 2000);
+                        }
                     }
-                    $reset.hide();
-                    return false;
                 });
             });
         },
