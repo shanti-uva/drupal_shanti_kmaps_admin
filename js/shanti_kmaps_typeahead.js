@@ -18,7 +18,7 @@
                                 $(e.target).kmapsTypeahead('setValue', '', false);
                                 $reset.hide();
                                 processing = false;
-                            }, 100);
+                            }, 250);
                         }
                     }
                 });
