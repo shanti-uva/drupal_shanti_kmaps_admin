@@ -14,9 +14,9 @@
                     if (!processing) {
                         if ($reset.is(':hover')) {
                             processing = true;
+                            $reset.hide();
                             window.setTimeout(function () {
                                 $(e.target).kmapsTypeahead('setValue', '', false);
-                                $reset.hide();
                                 processing = false;
                             }, 100);
                         }
