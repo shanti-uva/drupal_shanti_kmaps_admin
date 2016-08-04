@@ -13,6 +13,10 @@
             $('.kmap-typeahead-picker').once('shanti-kmaps').each(function () {
                 var $typeahead = $('.kmap-search-term', this);
                 var $searchreset = $('button.searchreset', this);
+                var $form = $searchreset.closest('form');
+                $form.on('reset', function(e) {
+                   console.log('reset');
+                });
                 $searchreset.click(function() {
                    console.log('reset search'); 
                 });
