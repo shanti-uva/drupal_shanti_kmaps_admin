@@ -6,6 +6,14 @@ button.searchreset.resetting {
     display: none !important;
 }
 
+.kmap-typeahead-picker .shanticon-magnify{
+    position: absolute;
+    left: 2.5rem; 
+    top: 2.8rem;
+    font-size: 1.12em;
+    color: #999;
+}
+
 /* FROM Sarvaka Mediabase mediabase-edit-form.css */
 
 /**
