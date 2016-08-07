@@ -11,5 +11,5 @@
            class="kmap-search-term form-control form-text" type="text"
            placeholder="Search <?php print $domain; ?>">
     <span class="icon shanticon-magnify"></span>
-    <button type="button" class="btn searchreset" style="display: none;"><span class="icon"></span></button>
+    <button type="button" class="btn searchreset" aria-label="Clear search text" style="display: none;"><span class="icon"></span></button>
 </div>
