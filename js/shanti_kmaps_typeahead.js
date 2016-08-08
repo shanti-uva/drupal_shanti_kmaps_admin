@@ -22,7 +22,7 @@
                     // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
                     if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
                         $xbtn.addClass('resetting');
-                        $(e.target).kmapsTypeahead('setValue', '', false);
+                        $srch.kmapsTypeahead('setValue', '', false);
                         window.setTimeout(function () {
                             $xbtn.removeClass('resetting');
                             $xbtn.hide();
