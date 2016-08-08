@@ -34,7 +34,7 @@
                         $xbtn.hide();
                         return true;
                     } else {
-                        $xbtn.show(100);
+                        $xbtn.show(); //(100);
                         return false;
                     }
                 });
