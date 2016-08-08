@@ -14,6 +14,16 @@
                     $srch.attr("placeholder", "");
                     $xbtn.show(); //("fast");
                 }).focusout(function () {
+                    // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
+                    if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
+                        $xbtn.addClass('resetting');
+                        $srch.kmapsTypeahead('setValue', '', false);
+                        window.setTimeout(function () {
+                            $xbtn.removeClass('resetting');
+                            $xbtn.hide();
+                        }, 300);
+                    }
+
                     $srch.attr("placeholder", $srch.data("holder"));
                     $xbtn.hide();
 
@@ -28,20 +38,6 @@
                         return false;
                     }
                 });
-
-                // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
-                $xbtn.click(function() {
-                    console.log('clicked on button');
-                    if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
-                        $xbtn.addClass('resetting');
-                        $srch.kmapsTypeahead('setValue', '', false);
-                        window.setTimeout(function () {
-                            $xbtn.removeClass('resetting');
-                            $xbtn.hide();
-                        }, 300);
-                    }
-                });
-
             });
         },
         detach: function (context, settings) {
