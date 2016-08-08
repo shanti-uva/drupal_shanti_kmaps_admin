@@ -10,17 +10,7 @@
                 var $srch = $(".kmap-search-term:not(.kmaps-tt-hint)", this);  // the main search input
                 $srch.data("holder", $srch.attr("placeholder"));
                 // --- focusin - focusout
-                $srch.click(function () {
-                    // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
-                    if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
-                        $xbtn.addClass('resetting');
-                        $srch.kmapsTypeahead('setValue', '', false);
-                        window.setTimeout(function () {
-                            $xbtn.removeClass('resetting');
-                            $xbtn.hide();
-                        }, 300);
-                    }
-                }).focusin(function () {
+                $srch.focusin(function () {
                     $srch.attr("placeholder", "");
                     $xbtn.show(); //("fast");
                 }).focusout(function () {
@@ -34,10 +24,24 @@
                         $xbtn.hide();
                         return true;
                     } else {
-                        $xbtn.show(); //(100);
+                        $xbtn.show(100);
                         return false;
                     }
                 });
+
+                // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
+                $xbtn.click(function() {
+                    console.log('clicked on button');
+                    if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
+                        $xbtn.addClass('resetting');
+                        $srch.kmapsTypeahead('setValue', '', false);
+                        window.setTimeout(function () {
+                            $xbtn.removeClass('resetting');
+                            $xbtn.hide();
+                        }, 300);
+                    }
+                });
+
             });
         },
         detach: function (context, settings) {
