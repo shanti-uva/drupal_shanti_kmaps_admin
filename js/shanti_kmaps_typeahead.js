@@ -12,7 +12,7 @@
                 // --- focusin - focusout
                 $srch.focusin(function () {
                     $srch.attr("placeholder", "");
-                    $xbtn.show("fast");
+                    $xbtn.show(); //("fast");
                 });
                 $srch.focusout(function () {
                     $srch.attr("placeholder", $srch.data("holder"));
