@@ -7,7 +7,7 @@
         attach: function (context, settings) {
             $('.kmap-typeahead-picker').once('shanti-kmaps').each(function () {
                 var $xbtn = $('button.searchreset', this);
-                var $srch = $(".kmaps-tt-input", this);  // the main search input
+                var $srch = $(".form-control", this);  // the main search input
                 $srch.data("holder", $srch.attr("placeholder"));
                 // --- focusin - focusout
                 $srch.focusin(function () {
