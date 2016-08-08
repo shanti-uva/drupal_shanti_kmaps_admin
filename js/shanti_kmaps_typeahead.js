@@ -8,9 +8,6 @@
             $('.kmap-typeahead-picker').once('shanti-kmaps').each(function () {
                 var $xbtn = $('button.searchreset', this);
                 var $srch = $(".kmap-search-term:not(.kmaps-tt-hint)", this);  // the main search input
-                console.log($xbtn);
-                console.log($srch);
-
                 $srch.data("holder", $srch.attr("placeholder"));
                 // --- focusin - focusout
                 $srch.focusin(function () {
