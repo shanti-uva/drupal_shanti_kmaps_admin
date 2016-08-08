@@ -6,8 +6,7 @@
     Drupal.behaviors.shantiKmapsAdminTypeahead = {
         attach: function (context, settings) {
             $('.kmap-typeahead-picker').once('shanti-kmaps').each(function () {
-                var $picker = $(this);
-                var $xbtn = $picker.find('button.searchreset');
+                var $xbtn = $('button.searchreset', this);
                 var $srch = $(".kmaps-tt-input", this);  // the main search input
                 $srch.data("holder", $srch.attr("placeholder"));
                 // --- focusin - focusout
