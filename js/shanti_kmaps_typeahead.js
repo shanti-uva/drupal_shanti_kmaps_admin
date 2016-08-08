@@ -10,14 +10,7 @@
                 var $srch = $(".kmap-search-term:not(.kmaps-tt-hint)", this);  // the main search input
                 $srch.data("holder", $srch.attr("placeholder"));
                 // --- focusin - focusout
-                $srch.focusin(function () {
-                    $srch.attr("placeholder", "");
-                    $xbtn.show(); //("fast");
-                });
-                $srch.focusout(function () {
-                    $srch.attr("placeholder", $srch.data("holder"));
-                    $xbtn.hide();
-
+                $srch.click(function () {
                     // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
                     if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
                         $xbtn.addClass('resetting');
@@ -27,6 +20,12 @@
                             $xbtn.hide();
                         }, 300);
                     }
+                }).focusin(function () {
+                    $srch.attr("placeholder", "");
+                    $xbtn.show(); //("fast");
+                }).focusout(function () {
+                    $srch.attr("placeholder", $srch.data("holder"));
+                    $xbtn.hide();
 
                     var str = $srch.data("holder"); //"Enter Search...";
                     var txt = $srch.val();
