@@ -40,7 +40,6 @@
                         var str = $srch.data("holder");
                         if (str.indexOf($srch.val()) > -1) {
                             $xbtn.hide();
-                            //return true;
                         }
                     }
                 });
