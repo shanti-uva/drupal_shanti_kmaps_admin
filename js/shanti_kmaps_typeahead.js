@@ -25,7 +25,7 @@
                     }
 
                     $srch.attr("placeholder", $srch.data("holder"));
-                    $xbtn.hide();
+                    // $xbtn.hide();
 
                     var str = $srch.data("holder"); //"Enter Search...";
                     var txt = $srch.val();
@@ -34,7 +34,7 @@
                         $xbtn.hide();
                         return true;
                     } else {
-                        $xbtn.show(100);
+                        // $xbtn.show(100);
                         return false;
                     }
                 });
