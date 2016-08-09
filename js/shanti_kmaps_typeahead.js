@@ -40,6 +40,15 @@
                         return false;
                     }
                 });
+
+                $xbtn.click(function() {
+                    $xbtn.addClass('resetting');
+                    $srch.kmapsTypeahead('setValue', '', false);
+                    window.setTimeout(function () {
+                        $xbtn.removeClass('resetting');
+                        $xbtn.hide();
+                    }, 300);
+                });
             });
         },
         detach: function (context, settings) {
