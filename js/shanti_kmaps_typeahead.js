@@ -9,13 +9,24 @@
                 var $xbtn = $('button.searchreset', this);
                 var $srch = $(".kmap-search-term:not(.kmaps-tt-hint)", this);  // the main search input
                 $srch.data("holder", $srch.attr("placeholder"));
+
+                // click
+                $xbtn.click(function() {
+                    $xbtn.addClass('resetting');
+                    $srch.kmapsTypeahead('setValue', '', false);
+                    window.setTimeout(function () {
+                        $xbtn.removeClass('resetting');
+                        $xbtn.hide();
+                    }, 300);
+                });
+
                 // --- focusin - focusout
                 $srch.focusin(function () {
-                    console.log('in');
                     $srch.attr("placeholder", "");
-                    $xbtn.show(); //("fast");
+                    $xbtn.show();
                 }).focusout(function () {
-                    console.log('out');
+                    $srch.attr("placeholder", $srch.data("holder"));
+
                     // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
                     if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
                         $xbtn.addClass('resetting');
@@ -25,30 +36,15 @@
                             $xbtn.hide();
                         }, 300);
                     }
-
-                    $srch.attr("placeholder", $srch.data("holder"));
-                    // $xbtn.hide();
-
-                    var str = $srch.data("holder"); //"Enter Search...";
-                    var txt = $srch.val();
-
-                    if (str.indexOf(txt) > -1) {
-                        $xbtn.hide();
-                        return true;
-                    } else {
-                        // $xbtn.show(100);
-                        return false;
+                    else {
+                        var str = $srch.data("holder");
+                        if (str.indexOf($srch.val()) > -1) {
+                            $xbtn.hide();
+                            //return true;
+                        }
                     }
                 });
 
-                $xbtn.click(function() {
-                    $xbtn.addClass('resetting');
-                    $srch.kmapsTypeahead('setValue', '', false);
-                    window.setTimeout(function () {
-                        $xbtn.removeClass('resetting');
-                        $xbtn.hide();
-                    }, 300);
-                });
             });
         },
         detach: function (context, settings) {
