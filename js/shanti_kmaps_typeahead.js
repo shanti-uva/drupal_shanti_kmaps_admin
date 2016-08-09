@@ -11,9 +11,11 @@
                 $srch.data("holder", $srch.attr("placeholder"));
                 // --- focusin - focusout
                 $srch.focusin(function () {
+                    console.log('in');
                     $srch.attr("placeholder", "");
                     $xbtn.show(); //("fast");
                 }).focusout(function () {
+                    console.log('out');
                     // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
                     if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
                         $xbtn.addClass('resetting');
