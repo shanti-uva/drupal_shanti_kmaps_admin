@@ -2,10 +2,6 @@
     clear: both;
 }
 
-button.searchreset.resetting {
-    display: none !important;
-}
-
 /* FROM Sarvaka Mediabase mediabase-edit-form.css */
 
 /**

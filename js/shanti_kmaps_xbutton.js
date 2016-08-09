@@ -3,21 +3,26 @@
  */
 
 (function ($) {
-    Drupal.behaviors.shantiKmapsAdminTypeahead = {
+    Drupal.behaviors.shantiKmapsXButton = {
         attach: function (context, settings) {
-            $('.kmap-typeahead-picker').once('shanti-kmaps').each(function () {
+            $('.kmap-typeahead-picker, .kmap-tree-picker').once('shanti-kmaps').each(function () {
                 var $xbtn = $('button.searchreset', this);
                 var $srch = $(".kmap-search-term:not(.kmaps-tt-hint)", this);  // the main search input
                 $srch.data("holder", $srch.attr("placeholder"));
 
                 // click
                 $xbtn.click(function() {
-                    $xbtn.addClass('resetting');
-                    $srch.kmapsTypeahead('setValue', '', false);
-                    window.setTimeout(function () {
-                        $xbtn.removeClass('resetting');
+                    if ($srch.hasClass('.kmaps-tt-input')) { // typeahead picker
+                        $xbtn.addClass('resetting');
+                        $srch.kmapsTypeahead('setValue', '', false);
+                        window.setTimeout(function () {
+                            $xbtn.removeClass('resetting');
+                            $xbtn.hide();
+                        }, 300);
+                    }
+                    else { // tree picker
                         $xbtn.hide();
-                    }, 300);
+                    }
                 });
 
                 // --- focusin - focusout
@@ -28,7 +33,7 @@
                     $srch.attr("placeholder", $srch.data("holder"));
 
                     // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
-                    if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
+                    if ($srch.hasClass('kmaps-tt-input') && !$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
                         $xbtn.addClass('resetting');
                         $srch.kmapsTypeahead('setValue', '', false);
                         window.setTimeout(function () {
