@@ -12,7 +12,7 @@
 
                 // click
                 $xbtn.click(function() {
-                    if ($srch.hasClass('.kmaps-tt-input')) { // typeahead picker
+                    if ($srch.hasClass('kmaps-tt-input')) { // typeahead picker
                         $xbtn.addClass('resetting');
                         $srch.kmapsTypeahead('setValue', '', false);
                         window.setTimeout(function () {
