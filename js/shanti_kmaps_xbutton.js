@@ -11,7 +11,7 @@
                 $srch.data("holder", $srch.attr("placeholder"));
 
                 // click
-                $xbtn.click(function() {
+                $xbtn.click(function () {
                     if ($srch.hasClass('kmaps-tt-input')) { // typeahead picker
                         $xbtn.addClass('resetting');
                         $srch.kmapsTypeahead('setValue', '', false);
@@ -34,8 +34,8 @@
                     $srch.attr("placeholder", $srch.data("holder"));
 
                     // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
-                    if ($srch.hasClass('kmaps-tt-input')) {
-                        if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
+                    if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
+                        if ($srch.hasClass('kmaps-tt-input')) { // typeahead picker
                             $xbtn.addClass('resetting');
                             $srch.kmapsTypeahead('setValue', '', false);
                             window.setTimeout(function () {
@@ -43,22 +43,18 @@
                                 $xbtn.hide();
                             }, 300);
                         }
-                        else {
-                            var str = $srch.data("holder");
-                            if (str.indexOf($srch.val()) > -1) {
-                                $xbtn.hide();
-                            }
+                        else { // tree picker
+                            $srch.val('');
+                            $xbtn.hide();
                         }
                     }
-                    else { // tree picker
-                        $srch.val('');
+                    else {
                         var str = $srch.data("holder");
                         if (str.indexOf($srch.val()) > -1) {
                             $xbtn.hide();
                         }
                     }
                 });
-
             });
         },
         detach: function (context, settings) {
