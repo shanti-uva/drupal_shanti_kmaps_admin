@@ -21,6 +21,7 @@
                         }, 300);
                     }
                     else { // tree picker
+                        $srch.val('');
                         $xbtn.hide();
                     }
                 });
@@ -33,15 +34,24 @@
                     $srch.attr("placeholder", $srch.data("holder"));
 
                     // see http://stackoverflow.com/questions/13980448/jquery-focusout-click-conflict
-                    if ($srch.hasClass('kmaps-tt-input') && !$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
-                        $xbtn.addClass('resetting');
-                        $srch.kmapsTypeahead('setValue', '', false);
-                        window.setTimeout(function () {
-                            $xbtn.removeClass('resetting');
-                            $xbtn.hide();
-                        }, 300);
+                    if ($srch.hasClass('kmaps-tt-input')) {
+                        if (!$xbtn.hasClass('resetting') && $xbtn.is(':hover')) {
+                            $xbtn.addClass('resetting');
+                            $srch.kmapsTypeahead('setValue', '', false);
+                            window.setTimeout(function () {
+                                $xbtn.removeClass('resetting');
+                                $xbtn.hide();
+                            }, 300);
+                        }
+                        else {
+                            var str = $srch.data("holder");
+                            if (str.indexOf($srch.val()) > -1) {
+                                $xbtn.hide();
+                            }
+                        }
                     }
-                    else {
+                    else { // tree picker
+                        $srch.val('');
                         var str = $srch.data("holder");
                         if (str.indexOf($srch.val()) > -1) {
                             $xbtn.hide();
