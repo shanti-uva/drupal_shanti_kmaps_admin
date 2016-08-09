@@ -10,19 +10,12 @@
 }
 .kmap-filter .kmaps-tt-header .close{
     position: relative;
-    top: -0.4rem;
-    right: -1rem;
-
-    /* close btn w/out x text */
     top:0;
     right:-11rem;
     color: transparent;
 }
 .kmap-filter .kmaps-tt-header .close::before{
     position: relative;
-    right: 0.7rem;
-
-    /* close btn w/out x text */
     right: 8.5rem; 
     top: -1rem;
     color:#000;
