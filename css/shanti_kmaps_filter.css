@@ -12,10 +12,13 @@
     position: relative;
     top: -0.4rem;
     right: -1rem;
+    color: transparent;
+    width: 4.5rem;
 }
 .kmap-filter .kmaps-tt-header .close::before{
     position: relative;
     right: 0.7rem;
+    right: 0; /* close btn w/out x text */
     top: -0.6rem;
 }
 .kmap-filter-box .selected-kmap:not(:first-child)::before{

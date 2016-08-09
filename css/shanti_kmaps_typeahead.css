@@ -46,7 +46,7 @@
     font-size: 2em;
 }
 .kmaps-tt-header .close::before{
-    content: 'Close';
+    content: 'Close X';
     display: inline-block;
     position: relative;
     right: 1rem;
