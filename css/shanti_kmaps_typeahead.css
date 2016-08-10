@@ -70,5 +70,19 @@
     font-weight: bold;
 }
 .kmaps-tt-menu .kmaps-tt-suggestion{
-    padding: 3px 20px 1px 15px;
+    padding: 2px 20px 2px 15px;
+}
+.kmaps-tt-menu .kmaps-tt-suggestion::before{
+    content: '';
+    width: 7px;
+    height: 7px;
+    border: 1px solid #777;
+    color: #555;
+    position: relative;
+    right: 7px;
+    bottom: 1px;
+    display: inline-block;
+}
+.kmaps-tt-menu .kmaps-tt-suggestion:hover::before{
+    border: 1px solid #fff;
 }
