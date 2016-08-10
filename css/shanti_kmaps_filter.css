@@ -12,6 +12,7 @@
     position: relative;
     top:0;
     right:-11rem;
+    z-index:10;
     color: transparent;
 }
 .kmap-filter .kmaps-tt-header .close::before{
