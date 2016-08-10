@@ -76,6 +76,9 @@
 .kmaps-tt-suggestion:hover:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet){
     background: transparent;
 }
+.kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
+    font-size: 85%;
+}
 .kmaps-tt-menu .kmaps-tt-suggestion::before{
     content: '';
     width: 7px;
