@@ -10,15 +10,14 @@
 }
 .kmap-filter .kmaps-tt-header .close{
     position: relative;
-    top:0;
-    right:-11rem;
-    z-index:10;
+    top: -11rem;
+    right: -2.5rem;
     color: transparent;
 }
 .kmap-filter .kmaps-tt-header .close::before{
     position: relative;
-    right: 8.5rem; 
-    top: -1rem;
+    right: 0; 
+    top: 10rem;
     color:#000;
 }
 .kmap-filter-box .selected-kmap:not(:first-child)::before{
