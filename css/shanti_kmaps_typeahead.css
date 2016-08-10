@@ -74,8 +74,8 @@
     margin-left: 7px;
 }
 .kmaps-tt-suggestion:hover:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet){
-    color:#444;
-    background: transparent;
+    color:#444 !important;
+    background: transparent !important;
 }
 .kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
     font-size: 85%;
@@ -93,6 +93,6 @@
     margin-left: -7px;
 }
 .kmaps-tt-menu .kmaps-tt-suggestion:hover::before{
-    border-color: #555 !important;
-    background: #555 !important;
+    border-color: #555;
+    background: #555;
 }
