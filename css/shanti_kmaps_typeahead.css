@@ -73,6 +73,9 @@
     padding: 2px 20px 2px 20px;
     margin-left: 7px;
 }
+.kmaps-tt-menu .kmaps-tt-suggestion:first-of-type{
+    padding-top:6px;
+}
 .kmaps-tt-suggestion:hover:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet){
     cursor: pointer;
     color:#444 !important;
