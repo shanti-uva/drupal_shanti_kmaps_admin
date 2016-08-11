@@ -74,6 +74,7 @@
     margin-left: 7px;
 }
 .kmaps-tt-suggestion:hover:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet){
+    cursor: pointer;
     color:#444 !important;
     background: transparent !important;
 }
@@ -92,7 +93,7 @@
     display: inline-block;
     margin-left: -7px;
 }
-.kmaps-tt-menu .kmaps-tt-suggestion:hover::before{
-    border-color: #555;
+.kmaps-tt-menu .kmaps-tt-suggestion:hover::before{ 
+    border-color: #555; /* set subtheme color to override this */
     background: #555;
 }
