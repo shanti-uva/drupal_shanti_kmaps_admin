@@ -72,7 +72,7 @@
 .group-details .field-name-field-location .kmaps-tt-header .close::before{
     position: relative;
     right: .5rem; 
-    top: 9.5rem;
+    top: 10.1rem;
 }
 .kmap-typeahead-picker label{
     text-transform: capitalize;
@@ -87,8 +87,8 @@
     padding: 2px 20px 2px 20px;
     margin-left: 7px;
 }
-.kmaps-tt-dataset .kmaps-tt-suggestion:first-of-type{
-    padding-top:9px;
+.kmaps-tt-dataset .kmaps-tt-suggestion:first-child{
+    margin-top:3px;
 }
 .kmaps-tt-suggestion:hover:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet){
     cursor: pointer;
