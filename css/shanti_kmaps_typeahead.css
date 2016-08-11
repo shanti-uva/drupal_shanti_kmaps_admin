@@ -7,6 +7,10 @@
 /**
 * BEGIN Typeahead Menu
 */
+.kmaps-tt-menu{
+    max-height: 450px;
+    overflow: auto;
+}
 .kmaps-tt-menu,
 .twitter-typeahead {
     padding-top: 0 !important;
