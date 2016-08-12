@@ -88,8 +88,8 @@
     padding: 2px 20px 2px 20px;
     margin-left: 10px;
 }
-.kmaps-tt-menu .kmaps-tt-suggestion:first-child{
-    margin-top:7px;
+.kmaps-tt-menu .kmaps-tt-suggestion:nth-of-type(1){
+    margin-top:5px;
 }
 .kmaps-tt-suggestion:hover:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet){
     cursor: pointer;
