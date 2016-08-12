@@ -65,16 +65,6 @@
     font-size: 0.44em;
     font-family: arial, tahoma, sans-serif;
 }
-.group-details .field-name-field-location .kmaps-tt-header .close{
-    position: relative;
-    top: -11rem;
-    right: -2.5rem;
-}
-.group-details .field-name-field-location .kmaps-tt-header .close::before{
-    position: relative;
-    right: .5rem; 
-    top: 10.1rem;
-}
 .kmap-typeahead-picker label{
     text-transform: capitalize;
     padding-left:1rem;
