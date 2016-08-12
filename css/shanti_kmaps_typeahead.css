@@ -9,7 +9,8 @@
 */
 .kmaps-tt-menu{
     max-height: 450px;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .kmaps-tt-menu,
 .twitter-typeahead {
