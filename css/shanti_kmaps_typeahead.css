@@ -85,7 +85,7 @@
     background: transparent !important;
 }
 .kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
-    font-size: 70%;
+    font-size: 80%;
 }
 .kmaps-tt-menu .kmaps-tt-suggestion::before{
     content: '';
@@ -111,6 +111,6 @@
     background-image:none !important;
     /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)"; - Note: if needed for overriding library css in IE, but below may suffice, and it should  work in SCSS */
     filter:none !important;
-    color:#404040 !important;
+    color:#000 !important;
 
 }
