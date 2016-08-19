@@ -79,11 +79,7 @@
     padding: 2px 20px 2px 20px;
     margin-left: 10px;
 }
-.kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
-    cursor: pointer;
-    color:#444;
-    background: transparent;
-}
+
 .kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
     font-size: 80%;
 }
@@ -99,13 +95,12 @@
     display: inline-block;
     margin-left: -10px;
 }
-
-/* typeahead hover color to match subtheme */
 .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
 .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
-    background-color: transparent;
+    cursor: pointer;
+    color:#444;
+    background-color: transparent !important;
 }
-
 .kmaps-tt-suggestion.kmaps-tt-cursor{
     background-color:transparent !important;
     background-image:none !important;
@@ -114,3 +109,5 @@
     color:#000 !important;
 
 }
+
+
