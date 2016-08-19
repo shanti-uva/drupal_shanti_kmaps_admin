@@ -107,10 +107,10 @@
 /* typeahead hover color to match subtheme */
 .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
 .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .kmaps-tt-suggestion.kmaps-tt-cursor{
-    background-color:transparent;
-    background-image:transparent;
+    background-color:transparent !important;
+    background-image:transparent !important;
 }
