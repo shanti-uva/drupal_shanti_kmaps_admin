@@ -103,3 +103,14 @@
     border-color: #555; /* set subtheme color to override this */
     background: #555;
 }
+
+/* typeahead hover color to match subtheme */
+.kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
+.kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
+    background-color: transparent;
+}
+
+.kmaps-tt-suggestion.kmaps-tt-cursor{
+    background-color:transparent;
+    background-image:transparent;
+}
