@@ -79,7 +79,7 @@
     padding: 2px 20px 2px 20px;
     margin-left: 10px;
 }
-.kmaps-tt-suggestion:hover:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet){
+.kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
     cursor: pointer;
     color:#444 !important;
     background: transparent !important;
@@ -111,5 +111,6 @@
     background-image:none !important;
     /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)"; - Note: if needed for overriding library css in IE, but below may suffice, and it should  work in SCSS */
     filter:none !important;
+    color:#404040 !important;
 
 }
