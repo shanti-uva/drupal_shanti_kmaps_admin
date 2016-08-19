@@ -103,14 +103,14 @@
 /* typeahead hover color to match subtheme */
 .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
 .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
-    background-color: transparent !important;
+    background-color: transparent;
 }
 
 .kmaps-tt-suggestion.kmaps-tt-cursor{
-    background-color:transparent !important;
-    background-image:none !important;
+    background-color:transparent;
+    background-image:none;
     /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)"; - Note: if needed for overriding library css in IE, but below may suffice, and it should  work in SCSS */
-    filter:none !important;
-    color:#000 !important;
+    filter:none;
+    color:#000;
 
 }
