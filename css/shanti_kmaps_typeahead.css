@@ -113,4 +113,7 @@
 .kmaps-tt-suggestion.kmaps-tt-cursor{
     background-color:transparent !important;
     background-image:none !important;
+    /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)"; - Note: if needed for overriding library css in IE, but below may suffice, and it should  work in SCSS */
+    filter:none;
+
 }
