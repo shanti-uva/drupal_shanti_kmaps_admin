@@ -81,8 +81,8 @@
 }
 .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
     cursor: pointer;
-    color:#444 !important;
-    background: transparent !important;
+    color:#444;
+    background: transparent;
 }
 .kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
     font-size: 80%;
@@ -107,10 +107,10 @@
 }
 
 .kmaps-tt-suggestion.kmaps-tt-cursor{
-    background-color:transparent;
-    background-image:none;
+    background-color:transparent !important;
+    background-image:none !important;
     /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)"; - Note: if needed for overriding library css in IE, but below may suffice, and it should  work in SCSS */
-    filter:none;
-    color:#000;
+    filter:none !important;
+    color:#000 !important;
 
 }
