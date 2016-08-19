@@ -112,5 +112,5 @@
 
 .kmaps-tt-suggestion.kmaps-tt-cursor{
     background-color:transparent !important;
-    background-image:transparent !important;
+    background-image:none !important;
 }
