@@ -1,12 +1,6 @@
 .kmap-typeahead-picker {
     clear: both;
 }
-
-/* FROM Sarvaka Mediabase mediabase-edit-form.css */
-
-/**
-* BEGIN Typeahead Menu
-*/
 .kmaps-tt-menu{
     max-height: 450px;
     overflow-y: auto;
@@ -92,13 +86,16 @@
     display:inline;
 }
 .kmaps-tt-suggestion .kmaps-count,
-.kmaps-tt-suggestion.kmaps-tt-zero-facet .kmaps-term,
-.kmaps-tt-suggestion.kmaps-tt-zero-facet .kmaps-ancestors{
+.kmaps-tt-suggestion .kmaps-term,
+.kmaps-tt-suggestion .kmaps-ancestors{
     color:gray;
 }
 .kmaps-tt-suggestion:hover .kmaps-count,
 .kmaps-tt-suggestion:hover .kmaps-term,
-.kmaps-tt-suggestion:hover .kmaps-ancestors{
+.kmaps-tt-suggestion:hover .kmaps-ancestors,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor .kmaps-count,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor .kmaps-term,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor .kmaps-ancestors{
     color:#000;
 }
 /* hover effect for using arrow keys to navigate menu */
