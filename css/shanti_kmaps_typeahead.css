@@ -67,9 +67,6 @@
 .kmaps-tt-menu .kmaps-tt-suggestion:nth-of-type(2){
     padding-top: 0.7rem;
 }
-.kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
-    font-size: 80%;
-}
 .kmaps-tt-menu .kmaps-tt-suggestion::before{
     content: '';
     width: 9px;
@@ -82,20 +79,38 @@
     display: inline-block;
     margin-left: -10px;
 }
-.kmaps-tt-suggestion:hover .kmaps-count,
-.kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
-.kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
+.kmaps-tt-menu .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
     cursor: pointer;
     color:#444;
     background-color: transparent !important;
 }
-.kmaps-tt-suggestion.kmaps-tt-cursor{
+.kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
+    font-size: 80%;
+}
+.kmaps-ancestors{
+    display:inline;
+}
+.kmaps-tt-suggestion .kmaps-count,
+.kmaps-tt-suggestion.kmaps-tt-zero-facet .kmaps-term,
+.kmaps-tt-suggestion.kmaps-tt-zero-facet .kmaps-ancestors{
+    color:gray;
+}
+.kmaps-tt-suggestion:hover .kmaps-count,
+.kmaps-tt-suggestion:hover .kmaps-term,
+.kmaps-tt-suggestion:hover .kmaps-ancestors{
+    color:#000;
+}
+/* hover effect for using arrow keys to navigate menu */
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor{
     background-color:transparent !important;
     background-image:none !important;
     /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)"; - Note: if needed for overriding library css in IE, but below may suffice, and it should  work in SCSS */
     filter:none !important;
     color:#000 !important;
-
 }
-
-
+.kmaps-tt-menu .kmaps-tt-suggestion:hover::before,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor::before{
+    border-color: #555; /* set subtheme color */
+    background-color: #555;
+}

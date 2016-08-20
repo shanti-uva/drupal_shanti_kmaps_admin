@@ -4,6 +4,7 @@
 }
 .kmap-filter-box{
     padding-left: 1rem;
+    min-height: 1rem;
 }
 .kmap-filter-box .selected-kmap:not(:first-child)::before{
     content: '(or)';
