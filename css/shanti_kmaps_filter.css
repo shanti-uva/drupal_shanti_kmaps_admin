@@ -5,10 +5,6 @@
 .kmap-filter-box{
     padding-left: 1rem;
 }
-.kmap-filter .kmaps-tt-header .close{
-    position: relative;
-    top: -0.45rem;
-}
 .kmap-filter-box .selected-kmap:not(:first-child)::before{
     content: '(or)';
     width: 2.2em;
