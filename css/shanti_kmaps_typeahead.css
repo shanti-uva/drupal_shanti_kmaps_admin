@@ -48,25 +48,25 @@
     position: relative;
     top: -11rem;
     right: -2.5rem;
-    color: transparent;
+    /*color: transparent;*/
     filter: alpha(opacity=30);
     opacity: 0.3;
     font-size: 2em;
 }
 .kmaps-tt-header .close:hover,
 .kmaps-tt-header .close:focus{ 
-    color:transparent;
+    /*color:transparent;*/
 }
 .kmaps-tt-header .close::before{
-    content: 'Close X';
+    /*content: 'Close X';
+    color:#000;
     display: inline-block;
     font-size: 0.44em;
-    font-family: arial, tahoma, sans-serif;
+    font-family: arial, tahoma, sans-serif;*/
 
     /*position: relative;
     right: 8.5rem; 
     top: -1rem;*/
-    color:#000;
 }
 .kmap-typeahead-picker label{
     text-transform: capitalize;
