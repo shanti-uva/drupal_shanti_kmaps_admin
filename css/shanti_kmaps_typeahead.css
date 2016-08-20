@@ -95,6 +95,7 @@
     display: inline-block;
     margin-left: -10px;
 }
+.kmaps-tt-suggestion:hover .kmaps-count,
 .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
 .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
     cursor: pointer;
