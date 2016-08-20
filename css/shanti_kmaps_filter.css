@@ -5,21 +5,6 @@
 .kmap-filter-box{
     padding-left: 1rem;
 }
-.kmap-filter .kmaps-tt-header{
-    padding-top:0.6rem;
-}/*
-.kmap-filter .kmaps-tt-header .close{
-    position: relative;
-    top: -11rem;
-    right: -2.5rem;
-    color: transparent;
-}
-.kmap-filter .kmaps-tt-header .close::before{
-    position: relative;
-    right: 0; 
-    top: 10rem;
-    color:#000;
-}*/
 .kmap-filter-box .selected-kmap:not(:first-child)::before{
     content: '(or)';
     width: 2.2em;
