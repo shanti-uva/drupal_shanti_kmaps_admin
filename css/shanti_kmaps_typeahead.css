@@ -12,9 +12,6 @@
     text-rendering: optimizeSpeed;
 }
 .kmaps-tt-header{
-    /*background-color: #eee;
-    border-top: 2px solid #ddd;
-    border-bottom: 1px solid #ddd;*/
     padding: 8px 20px 4px 14px !important;
     font-weight:normal !important;
 }
@@ -22,8 +19,6 @@
     border-top: none;
     margin-top: 0;
     border-radius: 0.8rem 0.8rem 0 0;
-    /*display: block;
-    width: 100%;*/
 }
 .kmap-typeahead-picker .kmaps-tt-header:first-of-type{
     position: relative;
