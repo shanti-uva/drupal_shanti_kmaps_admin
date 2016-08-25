@@ -104,3 +104,29 @@
     border-color: #555; /* set subtheme color */
     background-color: #555;
 }
+
+
+
+
+.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-count,
+.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-term,
+.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-ancestors,
+.kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-count,
+.kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-term,
+.kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-ancestors{
+    color:#222;
+}
+
+/* ----
+
+.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-count,
+.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-term,
+.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-ancestors,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-count,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-term,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-ancestors{
+    color:#333;
+}
+
+* ----
+*/
