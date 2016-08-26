@@ -116,7 +116,7 @@
 .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-count,
 .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-term,
 .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-ancestors{
-    color:#222 !important;
+    color:#000 !important;
 }
 
 /* ----
