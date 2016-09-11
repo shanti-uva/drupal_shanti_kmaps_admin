@@ -25,11 +25,14 @@
     height: 60px !important;
     margin-bottom: 0.4rem;
 }
-.typeahead-pager.pager{
+.kmaps-tt-header .typeahead-pager.pager{
     font-size: 85%;
     position: absolute;
     right: 0.7rem;
     bottom: 0.4rem;
+}
+.kmaps-tt-footer .typeahead-pager.pager{
+  font-size: 85%;
 }
 .kmaps-tt-header .close{
     position: relative;
