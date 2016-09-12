@@ -11,9 +11,9 @@
     padding-top: 0 !important;
     text-rendering: optimizeSpeed;
 }
-.kmaps-tt-header{
-    padding: 8px 20px 4px 14px !important;
-    font-weight:normal !important;
+.kmaps-tt-menu .kmaps-tt-header{
+    padding: 8px 20px 4px 14px;
+    font-weight:normal;
 }
 .kmaps-tt-header:first-of-type {
     border-top: none;
@@ -69,11 +69,11 @@
     display: inline-block;
     margin-left: -10px;
 }
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
-.kmaps-tt-menu .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
+.main-content .kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
+.main-content .kmaps-tt-menu .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
     cursor: pointer;
     color:#444;
-    background-color: transparent !important;
+    background-color: transparent;
 }
 .kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
     font-size: 80%;
@@ -95,12 +95,12 @@
     color:#000;
 }
 /* hover effect for using arrow keys to navigate menu */
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor{
-    background-color:transparent !important;
-    background-image:none !important;
+.main-content .kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor{
+    background-color:transparent;
+    background-image:none;
     /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)"; - Note: if needed for overriding library css in IE, but below may suffice, and it should  work in SCSS */
-    filter:none !important;
-    color:#000 !important;
+    filter:none;
+    color:#000;
 }
 .kmaps-tt-menu .kmaps-tt-suggestion:hover::before,
 .kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor::before{
@@ -110,16 +110,23 @@
 
 
 
-.kmaps-tt-suggestion.kmaps-tt-selectable .kmaps-count,
-.kmaps-tt-suggestion.kmaps-tt-selectable .kmaps-term,
-.kmaps-tt-suggestion.kmaps-tt-selectable .kmaps-ancestors,
-.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-count,
-.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-term,
-.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-ancestors,
-.kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-count,
-.kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-term,
-.kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-ancestors{
-    color:#000 !important;
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable .kmaps-count,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable .kmaps-term,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable .kmaps-ancestors,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-count,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-term,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-ancestors,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-count,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-term,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-ancestors{
+    color:#000;
+}
+
+.kmaps-tt-menu .kmaps-tt-suggestion:hover:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet),
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-term,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-ancestors {
+    color: #fff;
+    background-color: #489ded;
 }
 
 /* ----
