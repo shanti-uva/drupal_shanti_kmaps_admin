@@ -27,6 +27,7 @@
 }
 .typeahead-pager .pager-input {
   width: 4rem;
+  text-align:center;
 }
 .kmaps-tt-header .typeahead-pager.pager{
     font-size: 85%;
