@@ -60,20 +60,20 @@
     text-transform: uppercase;
     font-weight: bold;
 }
-.kmaps-tt-menu .kmaps-tt-suggestion{
+.kmaps-tt-suggestion{
     padding: 2px 20px 2px 20px;
     margin-left: 10px;
 }
-.kmaps-tt-menu .kmaps-tt-suggestion:nth-of-type(2){
+.kmaps-tt-suggestion:nth-of-type(2){
     padding-top: 0.7rem;
 }
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
-.kmaps-tt-menu .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
+/*.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,*/
+.kmaps-tt-suggestion:hover:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet){
     cursor: pointer;
     color:#444;
     background-color: transparent !important;
 }
-.kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
+.kmaps-tt-suggestion .kmaps-count{
     font-size: 80%;
 }
 .kmaps-ancestors{
@@ -84,14 +84,11 @@
 .kmaps-tt-suggestion .kmaps-ancestors{
     color:gray;
 }
-.kmaps-tt-suggestion:hover .kmaps-count,
-.kmaps-tt-suggestion:hover .kmaps-term,
-.kmaps-tt-suggestion:hover .kmaps-ancestors,
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor .kmaps-count,
+/*.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor .kmaps-count,
 .kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor .kmaps-term,
 .kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor .kmaps-ancestors{
     color:#000;
-}
+}*/
 /* hover effect for using arrow keys to navigate menu */
 .kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor{
     background-color:transparent !important;
@@ -112,13 +109,13 @@
     display: inline-block;
     margin-left: -10px;
 }
-.kmaps-tt-menu .kmaps-tt-suggestion:hover::before,
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-cursor::before{
+.kmaps-tt-suggestion:hover::before,
+.kmaps-tt-suggestion.kmaps-tt-cursor::before{
     border-color: #555; /* set subtheme color */
     background-color: #555;
 }
 
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:hover::before{
+.kmaps-tt-suggestion.kmaps-tt-selected:hover::before{
     border: 1px solid #777;
     background-color: transparent;
 }
@@ -135,9 +132,9 @@
     color:#000 !important;
 }
 
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:hover .kmaps-count,
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:hover .kmaps-term,
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:hover .kmaps-ancestors{
+.kmaps-tt-suggestion.kmaps-tt-selected:hover .kmaps-count,
+.kmaps-tt-suggestion.kmaps-tt-selected:hover .kmaps-term,
+.kmaps-tt-suggestion.kmaps-tt-selected:hover .kmaps-ancestors{
     color:grey !important;
 }
 
