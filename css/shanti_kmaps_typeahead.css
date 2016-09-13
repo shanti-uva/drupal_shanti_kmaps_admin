@@ -64,7 +64,7 @@
 .kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:not(.kmaps-tt-zero-facet):hover,
 .kmaps-tt-menu .kmaps-tt-suggestion:not(.kmaps-tt-selected):not(.kmaps-tt-zero-facet):hover{
     cursor: pointer;
-    color:grey !important;
+    color:#444;
     background-color: transparent !important;
 }
 .kmaps-tt-menu .kmaps-tt-suggestion .kmaps-count{
@@ -127,6 +127,12 @@
 .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-term,
 .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-ancestors{
     color:#000 !important;
+}
+
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:hover .kmaps-count,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:hover .kmaps-term,
+.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selected:hover .kmaps-ancestors{
+    color:grey !important;
 }
 
 /* ----
