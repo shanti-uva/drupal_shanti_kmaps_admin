@@ -29,8 +29,8 @@
     font-size: 85%;
 }
 .typeahead-pager .pager-input {
-  width: 4rem;
-  text-align:center;
+    width: 4rem;
+    text-align:center;
 }
 .kmaps-tt-header .typeahead-pager.pager{
     position: absolute;
@@ -109,15 +109,10 @@
     display: inline-block;
     margin-left: -10px;
 }
-.kmaps-tt-suggestion:hover::before,
+.kmaps-tt-suggestion:hover:not(.kmaps-tt-selected)::before,
 .kmaps-tt-suggestion.kmaps-tt-cursor::before{
-    border-color: #555; /* set subtheme color */
-    background-color: #555;
-}
-
-.kmaps-tt-suggestion.kmaps-tt-selected:hover::before{
-    border: 1px solid #777;
-    background-color: transparent;
+    border-color: #555;
+    background-color: #555;  /* set custom colors in subtheme css */
 }
 
 .kmaps-tt-suggestion.kmaps-tt-selectable .kmaps-count,
@@ -138,16 +133,4 @@
     color:grey !important;
 }
 
-/* ----
 
-.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-count,
-.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-term,
-.kmaps-tt-suggestion.kmaps-tt-selectable:hover .kmaps-ancestors,
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-count,
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-term,
-.kmaps-tt-menu .kmaps-tt-suggestion.kmaps-tt-selectable.kmaps-tt-cursor .kmaps-ancestors{
-    color:#333;
-}
-
-* ----
-*/
