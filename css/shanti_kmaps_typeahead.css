@@ -25,18 +25,17 @@
     height: 60px !important;
     margin-bottom: 0.4rem;
 }
+.typeahead-pager.pager{
+    font-size: 85%;
+}
 .typeahead-pager .pager-input {
   width: 4rem;
   text-align:center;
 }
 .kmaps-tt-header .typeahead-pager.pager{
-    font-size: 85%;
     position: absolute;
     right: 0.7rem;
     bottom: 0.4rem;
-}
-.kmaps-tt-footer .typeahead-pager.pager{
-  font-size: 85%;
 }
 .kmaps-tt-header .close{
     position: relative;
@@ -44,6 +43,10 @@
     left: 0.7rem;
     font-size: 2.12em;
     font-weight:normal;
+}
+.kmaps-tt-footer{
+    padding: 1rem;
+    margin: 1rem;
 }
 .kmap-typeahead-picker label{
     text-transform: capitalize;
