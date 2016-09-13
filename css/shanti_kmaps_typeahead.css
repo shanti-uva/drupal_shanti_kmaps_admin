@@ -44,9 +44,12 @@
     font-size: 2.12em;
     font-weight:normal;
 }
-.kmaps-tt-footer{
-    padding: 1rem;
-    margin: 1rem;
+.kmaps-tt-footer.kmaps-tt-results{
+    padding: 0.7rem 1rem 1.3rem;
+    background-color: #eee;
+    border-radius: 0 0 0.8rem 0.8rem;
+    position: relative;
+    top: 0.5rem;
 }
 .kmap-typeahead-picker label{
     text-transform: capitalize;
