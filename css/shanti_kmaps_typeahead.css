@@ -38,11 +38,21 @@
     bottom: 0.4rem;
 }
 .kmaps-tt-header .close{
+    border: 0 none;
+    cursor: pointer;
+    padding: 0;
+    float: right;
     position: relative;
-    top: -0.5rem;
+    top: -0.75rem;
     left: 0.7rem;
     font-size: 2.12em;
     font-weight:normal;
+    background: none;
+    opacity: 0.2;
+}
+.kmaps-tt-header .close:hover,
+.kmaps-tt-header .close:focus{
+    opacity: 0.5;
 }
 .kmaps-tt-footer.kmaps-tt-results{
     padding: 0.7rem 1rem 1.3rem;
