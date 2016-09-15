@@ -1,37 +1,25 @@
 .delete-me, .kmap-item {
     cursor:pointer;
 }
-
 .delete-me {
     padding: 0 5px 0 0;
 }
-
 .selected-kmap{
-    color: #333;
     font-size: 0.93em;
-    font-family: 'museo-sans-500', helvetica, arial, sans-serif;
-    border: none;
     float: left;
     margin: 0 0.25em 0.25em 0;
     padding: 0.3rem 0 0.3rem 0.4rem;
-    background-color: transparent;
 }
-
 .selected-kmap:hover{
     color: #555;
     background-color: transparent;
 }
-
 .selected-kmap .shanticon-close2:before{
     color: #888;
-    position: relative;
-    top: 0.15rem;
     font-size: 1.12em;
     cursor:pointer;
-    content: '\e60f';
-    font-family:'shanticon';
+    content: 'ⓧ';
 }
-
 .selected-kmap:hover .shanticon-close2:before{
     color: red;
 }

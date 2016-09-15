@@ -32,7 +32,8 @@
     position: relative;
     top: -0.75rem;
     left: 0.7rem;
-    font-size: 2.12em;
+    font-size: 1.75em;
+    /* font-size: 2.12em; */
     font-weight:normal;
     background: none;
     opacity: 0.2;
@@ -139,7 +140,6 @@
   color: #707070;
   padding: 0 1px;
   line-height: 1em;
-  font-family: 'museo-sans-700',helvetica,arial,sans-serif;
   font-weight: bold;
 }
 .typeahead-pager .pager-input {
@@ -175,6 +175,7 @@
   color: #333;
   box-shadow: 0 0 3px rgba(50, 50, 50, 0.4);
   border-collapse: separate;
+  cursor: pointer;
 }
 .typeahead-pager li>a:active {
   color: #000;
@@ -183,15 +184,6 @@
 .typeahead-pager li>a:hover .icon,
 .typeahead-pager li>a:active .icon {
   color: #444;
-}
-.typeahead-pager .pager-first>a,
-.typeahead-pager .pager-last>a {
-  padding: 2px 0 5px;
-}
-.typeahead-pager .pager-first span,
-.typeahead-pager .pager-last span {
-  position: relative;
-  top: 0.2rem !important;
 }
 .typeahead-pager .pager-first .icon,
 .typeahead-pager .pager-previous .icon,
@@ -217,10 +209,6 @@
 .typeahead-pager li.icon::before {
   position: relative;
   top: 0.1rem;
-}
-.typeahead-pager .pager-first .icon,
-.typeahead-pager .pager-last .icon {
-  font-size: 1.38em;
 }
 /*-- Pager changing active to black and inactive to grey --*/
 .typeahead-pager .pager-first .icon,
