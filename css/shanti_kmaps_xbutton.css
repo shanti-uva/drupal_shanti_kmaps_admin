@@ -1,12 +1,3 @@
-/* By default, the search reset button is positioned off
-   the screen. For it to be used, a theme must properly
-   position it. */
-
-.kmap-typeahead-picker .searchreset {
-  position: absolute;
-  left: -9999px;
-}
-
 .kmap-typeahead-picker .searchreset.resetting {
   display: none !important;
 }
