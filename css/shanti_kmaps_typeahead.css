@@ -50,9 +50,9 @@
     top: 0.5rem;
 }
 .kmap-typeahead-picker label{
-    text-transform: capitalize;
+    /*text-transform: capitalize;
     padding-left:1rem;
-    font-weight: normal;
+    font-weight: normal;*/
 }
 .kmap-typeahead-picker label span{
     text-transform: uppercase;

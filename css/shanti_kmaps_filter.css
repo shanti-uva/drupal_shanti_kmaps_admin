@@ -20,8 +20,7 @@
 }
 .kmap-filter label{
     text-transform: capitalize;
-    padding-left:1rem;
-    font-weight: normal;
+    margin-left:1.5rem;
 }
 .kmap-filter label span{
     text-transform: uppercase;
